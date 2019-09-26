@@ -51,6 +51,13 @@ class ImageGalleryModuleViewController: AppViewController {
 
         observeViewEffect()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if viewModel.isShowingFavorites == true {
+        self.viewModel.showFavorites()
+        }
+    }
 }
 
 // MARK: - Setup

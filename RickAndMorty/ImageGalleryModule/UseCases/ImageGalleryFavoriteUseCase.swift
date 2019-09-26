@@ -25,6 +25,12 @@ extension ImageGalleryFavoriteUseCase {
                 case .loading:
                     return .loading
                 case .success(let data):
+                    if ResponseModel.parse(from: data) != nil {
+                        return .success([])
+                    }
+                    if let character = CharacterModel.parse(from: data) {
+                        return .success([character])
+                    }
                     guard let array = data as? Array<Dictionary<String, Any>> else {
                         return .error
                     }

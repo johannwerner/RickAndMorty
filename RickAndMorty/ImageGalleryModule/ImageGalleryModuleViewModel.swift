@@ -7,7 +7,7 @@ import RxSwift
 class ImageGalleryModuleViewModel {
 
     // MARK: - Properties
-    private var isShowingFavorites = false
+    var isShowingFavorites = false
     private var responseModel: ResponseModel
     private var favorites: [CharacterModel] = []
     private var allCharacters: [CharacterModel] {

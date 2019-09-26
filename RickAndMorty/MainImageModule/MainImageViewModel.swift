@@ -64,7 +64,7 @@ extension MainImageViewModel {
                         assertionFailure("model is nil")
                         return
                     }
-                    self.favoriteChacater(model: &model)
+                    self.favoriteChacater(model: model)
                 }
             })
             .disposed(by: disposeBag)
@@ -74,9 +74,9 @@ extension MainImageViewModel {
 // MARK: - Private functions
 
 private extension MainImageViewModel {
-    func favoriteChacater(model: inout CharacterModel) {
+    func favoriteChacater(model: CharacterModel) {
         let status = self.useCase.favoriteCharacter(
-            model: &model
+            model: model
            )
         switch status {
         case .character(let model):
