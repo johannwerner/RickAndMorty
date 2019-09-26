@@ -12,7 +12,10 @@ final class ErrorModuleCoordinator {
 
     // MARK: - Life cycle
     
-    init(navigationController: UINavigationController, configurator: ErrorModuleConfigurator) {
+    init(
+        navigationController: UINavigationController,
+        configurator: ErrorModuleConfigurator
+    ) {
         self.navigationController = navigationController
         self.configurator = configurator
     }

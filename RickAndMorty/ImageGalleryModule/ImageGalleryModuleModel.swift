@@ -5,71 +5,27 @@ enum ImageGalleryModuleStatus {
     case success(ResponseModel)
 }
 
+enum ImageGalleryModuleCharacterStatus {
+    case loading
+    case error
+    case success([CharacterModel])
+}
+
 /// View effect enum for ImageGalleryModule.
 enum ImageGalleryModuleViewEffect {
     case success
+    case loading
+    case error
 }
 
 /// View action enum for ImageGalleryModule.
 enum ImageGalleryModuleViewAction {
     case selectedIndex(Int)
     case loadMore
-}
-
-struct ImageGalleryModuleModel {
-    var imageGalleryItem: ImageGalleryItem
-    ///Keeps track of which item has been selected.
-    /// Nil if nothing has been selected
-    var selectedIndex: Int?
-}
-
-struct ResponseModel: Codable {
-    var results: [CharacterModel]
-    var info: Info
-    var selectedIndex: Int? = nil
-    struct Info: Codable {
-        var next: String
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case results
-        case info
-    }
-    
-    // MARK: - Life Cycle
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let results = try container.decode([CharacterModel].self, forKey: .results)
-        let info = try container.decode(Info.self, forKey: .info)
-
-        self.info = info
-        self.results = results
-        self.selectedIndex = nil
-    }
+    case showFavorites
 }
 
 
-struct CharacterModel: Codable, ImageCollectionProtocol {
-    var image: String
-    var id: Int
-    var isFavorite: Bool
-    var imageUrlToShow: String {
-        image
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case image
-        case id
-    }
-    
-    // MARK: - Life Cycle
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let image = try container.decode(String.self, forKey: .image)
-        let id = try container.decode(Int.self, forKey: .id)
-
-        self.image = image
-        self.id = id
-        self.isFavorite = false
-    }
+struct FavoriteConstants {
+    static let rickAndMortyApi = "https://rickandmortyapi.com/api/character/"
 }

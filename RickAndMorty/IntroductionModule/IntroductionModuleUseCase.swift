@@ -24,7 +24,7 @@ extension IntroductionModuleUseCase {
                     return .loading
                 case .success(let data):
                     
-                    guard let responseModel = IntroductionResponseModel.parse(from: data) else {
+                    guard let responseModel = ResponseModel.parse(from: data) else {
                         return .error
                     }
                     return .success(responseModel)

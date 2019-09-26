@@ -42,42 +42,41 @@ extension  IntroductionModuleCoordinator {
 
 extension  IntroductionModuleCoordinator {
 
-    func showCharacterList(model: IntroductionResponseModel, animated: Bool) {
+    func showCharacterList(model: ResponseModel, animated: Bool) {
             let interactor = ImageGalleryModuleInteractorApi()
             let configurator = ImageGalleryModuleConfigurator(imageGalleryModuleInteractor: interactor)
             let coordinator = ImageGalleryModuleCoordinator(navigationController: navigationController, configurator: configurator)
-        let responseModel = ResponseModel(introductionResponseModel: model)
-        coordinator.showImageGallery(model: responseModel, animated: true)
+        coordinator.showImageGallery(model: model, animated: true)
     }
     
     
 }
 
-private extension ResponseModel {
-    init(introductionResponseModel: IntroductionResponseModel) {
-        let results = introductionResponseModel.results.map { character -> CharacterModel in
-            CharacterModel(introductionCharacter: character)
-        }
-        let info = ResponseModel.Info(next: introductionResponseModel.info.next)
-        self.results = results
-        self.info = info
-        self.selectedIndex = nil
-    }
-}
+//private extension ResponseModel {
+//    init(introductionResponseModel: ResponseModel) {
+//        let results = introductionResponseModel.results.map { character -> CharacterModel in
+//            CharacterModel(introductionCharacter: character)
+//        }
+//        let info = ResponseModel.Info(next: introductionResponseModel.info.next)
+//        self.results = results
+//        self.info = info
+//        self.selectedIndex = nil
+//    }
+//}
+//
+//private extension CharacterModel {
+//    init(introductionCharacter: ResponseModel.CharacterModel) {
+//        self.image = introductionCharacter.image
+//        self.isFavorite = false
+//        self.id = introductionCharacter.id
+//    }
+//}
 
-private extension CharacterModel {
-    init(introductionCharacter: IntroductionResponseModel.CharacterModel) {
-        self.image = introductionCharacter.image
-        self.isFavorite = false
-        self.id = introductionCharacter.id      
-    }
-}
-
-private extension ResponseModel.Info {
-    init(introductionInfo: IntroductionResponseModel.Info) {
-        self.next = introductionInfo.next
-    }
-}
+//private extension ResponseModel.Info {
+//    init(introductionInfo: ResponseModel.Info) {
+//        self.next = introductionInfo.next
+//    }
+//}
 //
 //private extension ImageGalleryItem {
 //    init(models: [CharacterModel]) {

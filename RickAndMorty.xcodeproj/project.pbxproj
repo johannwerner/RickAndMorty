@@ -38,7 +38,6 @@
 		9380E5B7233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5AD233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift */; };
 		9380E5B8233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5AE233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift */; };
 		9380E5B9233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5AF233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift */; };
-		9380E5BA233D1F7300E2B383 /* ImageGalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5B1233D1F7300E2B383 /* ImageGalleryItem.swift */; };
 		9380E5BB233D1F7300E2B383 /* ImageGalleryModuleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5B2233D1F7300E2B383 /* ImageGalleryModuleUseCase.swift */; };
 		9380E5BC233D1F7300E2B383 /* ImageGalleryModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5B3233D1F7300E2B383 /* ImageGalleryModuleModel.swift */; };
 		9380E5BD233D1F7300E2B383 /* ImageGalleryModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5B4233D1F7300E2B383 /* ImageGalleryModuleViewController.swift */; };
@@ -63,6 +62,9 @@
 		9380E5E6233D513D00E2B383 /* ErrorModuleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */; };
 		9380E5E7233D513D00E2B383 /* ErrorModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */; };
 		9380E5E9233D51E700E2B383 /* Rick.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9380E5E8233D51E700E2B383 /* Rick.strings */; };
+		9380E5EE233D69DB00E2B383 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5ED233D69DB00E2B383 /* ResponseModel.swift */; };
+		9380E5F0233D69F900E2B383 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5EF233D69F900E2B383 /* CharacterModel.swift */; };
+		9380E5F3233D6B7D00E2B383 /* ImageGalleryFavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5F2233D6B7D00E2B383 /* ImageGalleryFavoriteUseCase.swift */; };
 		EEA54FF91669826220F29A51 /* Pods_RickAndMortyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4B561A61C32075036E6429 /* Pods_RickAndMortyTests.framework */; };
 		FA5EB98022CB57FF790494FB /* Pods_RickAndMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE97CF9E7DFA987A99B2A7E /* Pods_RickAndMorty.framework */; };
 /* End PBXBuildFile section */
@@ -116,7 +118,6 @@
 		9380E5AD233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleConfigurator.swift; sourceTree = "<group>"; };
 		9380E5AE233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleInteractorApi.swift; sourceTree = "<group>"; };
 		9380E5AF233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleCoordinator.swift; sourceTree = "<group>"; };
-		9380E5B1233D1F7300E2B383 /* ImageGalleryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryItem.swift; sourceTree = "<group>"; };
 		9380E5B2233D1F7300E2B383 /* ImageGalleryModuleUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleUseCase.swift; sourceTree = "<group>"; };
 		9380E5B3233D1F7300E2B383 /* ImageGalleryModuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleModel.swift; sourceTree = "<group>"; };
 		9380E5B4233D1F7300E2B383 /* ImageGalleryModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryModuleViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +142,9 @@
 		9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleUseCase.swift; sourceTree = "<group>"; };
 		9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleInteractor.swift; sourceTree = "<group>"; };
 		9380E5E8233D51E700E2B383 /* Rick.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Rick.strings; sourceTree = "<group>"; };
+		9380E5ED233D69DB00E2B383 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		9380E5EF233D69F900E2B383 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		9380E5F2233D6B7D00E2B383 /* ImageGalleryFavoriteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryFavoriteUseCase.swift; sourceTree = "<group>"; };
 		CCE322D90CC0BC3503DDEF65 /* Pods-RickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA25FA4D0CBD7F6DD814E9B4 /* Pods-RickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-RickAndMorty/Pods-RickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
 		F5D184B89DE7264633F99D1F /* Pods-RickAndMortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,15 +214,12 @@
 		9380E557233D16AC00E2B383 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
-				9380E5D7233D513C00E2B383 /* ErrorModule */,
-				9380E5C0233D250A00E2B383 /* MainImageModule */,
-				9380E5AA233D1F7300E2B383 /* ImageGalleryModule */,
-				9380E58B233D17D200E2B383 /* SupportingFiles */,
-				9380E57A233D17BA00E2B383 /* IntroductionModule */,
 				9380E558233D16AC00E2B383 /* AppDelegate.swift */,
-				9380E55E233D16AF00E2B383 /* Assets.xcassets */,
-				9380E563233D16AF00E2B383 /* LaunchScreen.storyboard */,
-				9380E566233D16AF00E2B383 /* Info.plist */,
+				9380E57A233D17BA00E2B383 /* IntroductionModule */,
+				9380E5AA233D1F7300E2B383 /* ImageGalleryModule */,
+				9380E5C0233D250A00E2B383 /* MainImageModule */,
+				9380E5D7233D513C00E2B383 /* ErrorModule */,
+				9380E58B233D17D200E2B383 /* SupportingFiles */,
 				9380E560233D16AF00E2B383 /* Preview Content */,
 			);
 			path = RickAndMorty;
@@ -246,13 +247,13 @@
 			isa = PBXGroup;
 			children = (
 				9380E57B233D17BA00E2B383 /* IntroductionModuleViewController.swift */,
-				9380E57C233D17BA00E2B383 /* IntroductionModuleConfigurator.swift */,
 				9380E57D233D17BA00E2B383 /* IntroductionModuleViewModel.swift */,
 				9380E57E233D17BA00E2B383 /* IntroductionModuleModel.swift */,
-				9380E57F233D17BA00E2B383 /* IntroductionModuleInteractorApi.swift */,
 				9380E580233D17BA00E2B383 /* IntroductionModuleUseCase.swift */,
-				9380E581233D17BA00E2B383 /* IntroductionModuleCoordinator.swift */,
+				9380E57F233D17BA00E2B383 /* IntroductionModuleInteractorApi.swift */,
 				9380E582233D17BA00E2B383 /* IntroductionModuleInteractor.swift */,
+				9380E57C233D17BA00E2B383 /* IntroductionModuleConfigurator.swift */,
+				9380E581233D17BA00E2B383 /* IntroductionModuleCoordinator.swift */,
 			);
 			path = IntroductionModule;
 			sourceTree = "<group>";
@@ -260,6 +261,10 @@
 		9380E58B233D17D200E2B383 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9380E563233D16AF00E2B383 /* LaunchScreen.storyboard */,
+				9380E55E233D16AF00E2B383 /* Assets.xcassets */,
+				9380E566233D16AF00E2B383 /* Info.plist */,
+				9380E5EC233D69C300E2B383 /* SharedModels */,
 				9380E5BE233D207900E2B383 /* UIImageView+Network.swift */,
 				9380E5A3233D1EEF00E2B383 /* SharedProtocol */,
 				9380E5A5233D1EEF00E2B383 /* SharedViews */,
@@ -316,38 +321,29 @@
 		9380E5AA233D1F7300E2B383 /* ImageGalleryModule */ = {
 			isa = PBXGroup;
 			children = (
-				9380E5B0233D1F7300E2B383 /* Model */,
-				9380E5AB233D1F7300E2B383 /* ImageGalleryModuleInteractor.swift */,
-				9380E5AC233D1F7300E2B383 /* ImageGalleryModuleViewModel.swift */,
-				9380E5AD233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift */,
-				9380E5AE233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift */,
-				9380E5AF233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift */,
-				9380E5B2233D1F7300E2B383 /* ImageGalleryModuleUseCase.swift */,
-				9380E5B3233D1F7300E2B383 /* ImageGalleryModuleModel.swift */,
+				9380E5F1233D6B5800E2B383 /* UseCases */,
 				9380E5B4233D1F7300E2B383 /* ImageGalleryModuleViewController.swift */,
+				9380E5AC233D1F7300E2B383 /* ImageGalleryModuleViewModel.swift */,
+				9380E5B3233D1F7300E2B383 /* ImageGalleryModuleModel.swift */,
+				9380E5AE233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift */,
+				9380E5AB233D1F7300E2B383 /* ImageGalleryModuleInteractor.swift */,
+				9380E5AD233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift */,
+				9380E5AF233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift */,
 			);
 			path = ImageGalleryModule;
-			sourceTree = "<group>";
-		};
-		9380E5B0233D1F7300E2B383 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9380E5B1233D1F7300E2B383 /* ImageGalleryItem.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9380E5C0233D250A00E2B383 /* MainImageModule */ = {
 			isa = PBXGroup;
 			children = (
+				9380E5C4233D250A00E2B383 /* MainImageViewController.swift */,
+				9380E5C6233D250A00E2B383 /* MainImageViewModel.swift */,
+				9380E5C3233D250A00E2B383 /* MainImageModel.swift */,
+				9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */,
 				9380E5C1233D250A00E2B383 /* MainImageInteractor.swift */,
 				9380E5C2233D250A00E2B383 /* MainImageInteractorApi.swift */,
-				9380E5C3233D250A00E2B383 /* MainImageModel.swift */,
-				9380E5C4233D250A00E2B383 /* MainImageViewController.swift */,
 				9380E5C5233D250A00E2B383 /* MainImageConfigurator.swift */,
-				9380E5C6233D250A00E2B383 /* MainImageViewModel.swift */,
 				9380E5C7233D250A00E2B383 /* MainImageCoordinator.swift */,
-				9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */,
 			);
 			path = MainImageModule;
 			sourceTree = "<group>";
@@ -355,16 +351,34 @@
 		9380E5D7233D513C00E2B383 /* ErrorModule */ = {
 			isa = PBXGroup;
 			children = (
-				9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */,
 				9380E5D9233D513C00E2B383 /* ErrorModuleViewController.swift */,
 				9380E5DA233D513C00E2B383 /* ErrorModuleViewModel.swift */,
-				9380E5DB233D513C00E2B383 /* ErrorModuleCoordinator.swift */,
 				9380E5DC233D513C00E2B383 /* ErrorModuleModel.swift */,
-				9380E5DD233D513C00E2B383 /* ErrorModuleInteractorApi.swift */,
 				9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */,
+				9380E5DD233D513C00E2B383 /* ErrorModuleInteractorApi.swift */,
 				9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */,
+				9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */,
+				9380E5DB233D513C00E2B383 /* ErrorModuleCoordinator.swift */,
 			);
 			path = ErrorModule;
+			sourceTree = "<group>";
+		};
+		9380E5EC233D69C300E2B383 /* SharedModels */ = {
+			isa = PBXGroup;
+			children = (
+				9380E5ED233D69DB00E2B383 /* ResponseModel.swift */,
+				9380E5EF233D69F900E2B383 /* CharacterModel.swift */,
+			);
+			path = SharedModels;
+			sourceTree = "<group>";
+		};
+		9380E5F1233D6B5800E2B383 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				9380E5B2233D1F7300E2B383 /* ImageGalleryModuleUseCase.swift */,
+				9380E5F2233D6B7D00E2B383 /* ImageGalleryFavoriteUseCase.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,18 +559,21 @@
 				9380E5B5233D1F7300E2B383 /* ImageGalleryModuleInteractor.swift in Sources */,
 				9380E5A0233D182300E2B383 /* Decodable+Utils.swift in Sources */,
 				9380E5B6233D1F7300E2B383 /* ImageGalleryModuleViewModel.swift in Sources */,
+				9380E5EE233D69DB00E2B383 /* ResponseModel.swift in Sources */,
 				9380E5BF233D207900E2B383 /* UIImageView+Network.swift in Sources */,
 				9380E593233D17F700E2B383 /* NSObject+App.swift in Sources */,
 				9380E5B9233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift in Sources */,
 				9380E5CB233D250A00E2B383 /* MainImageModel.swift in Sources */,
 				9380E5E3233D513D00E2B383 /* ErrorModuleCoordinator.swift in Sources */,
 				9380E586233D17BA00E2B383 /* IntroductionModuleModel.swift in Sources */,
+				9380E5F0233D69F900E2B383 /* CharacterModel.swift in Sources */,
 				9380E5C9233D250A00E2B383 /* MainImageInteractor.swift in Sources */,
 				9380E589233D17BA00E2B383 /* IntroductionModuleCoordinator.swift in Sources */,
 				9380E5E5233D513D00E2B383 /* ErrorModuleInteractorApi.swift in Sources */,
 				9380E5D2233D2B3800E2B383 /* UserDefaultsManager.swift in Sources */,
 				9380E5E7233D513D00E2B383 /* ErrorModuleInteractor.swift in Sources */,
 				9380E5A1233D182300E2B383 /* Array+App.swift in Sources */,
+				9380E5F3233D6B7D00E2B383 /* ImageGalleryFavoriteUseCase.swift in Sources */,
 				9380E5A2233D182300E2B383 /* AttributedStringManager.swift in Sources */,
 				9380E5B7233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift in Sources */,
 				9380E5D0233D250A00E2B383 /* FavoriteUseCase.swift in Sources */,
@@ -578,7 +595,6 @@
 				9380E596233D17F700E2B383 /* UIAplication+Window.swift in Sources */,
 				9380E559233D16AC00E2B383 /* AppDelegate.swift in Sources */,
 				9380E5E1233D513D00E2B383 /* ErrorModuleViewController.swift in Sources */,
-				9380E5BA233D1F7300E2B383 /* ImageGalleryItem.swift in Sources */,
 				9380E5E2233D513D00E2B383 /* ErrorModuleViewModel.swift in Sources */,
 				9380E598233D17F700E2B383 /* Async.swift in Sources */,
 				9380E599233D17F700E2B383 /* ViewController.swift in Sources */,
@@ -742,7 +758,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMorty/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -762,7 +778,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMorty/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = RickAndMorty/Info.plist;
+				INFOPLIST_FILE = RickAndMorty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -4,7 +4,7 @@ import PureLayout
 
 /// Brief description of the purpose of the view controller
 /// - Requires: `RxSwift`
-class ImageGalleryModuleViewController: UIViewController {
+class ImageGalleryModuleViewController: AppViewController {
     
     // MARK: Dependencies
     private let viewModel: ImageGalleryModuleViewModel
@@ -62,6 +62,16 @@ private extension ImageGalleryModuleViewController {
         view.backgroundColor = .white
         
         setUpCollectionView()
+        setUpNavBar()
+    }
+    
+    func setUpNavBar() {
+        let favoriteButton = UIBarButtonItem(title: "Show Favorites", style: .done, target: self, action: #selector(showFavorites))
+        self.navigationItem.rightBarButtonItem  = favoriteButton
+    }
+    
+    @objc func showFavorites() {
+        viewAction.accept(.showFavorites)
     }
     
     func setUpCollectionView() {
@@ -93,6 +103,12 @@ private extension ImageGalleryModuleViewController {
                 switch effect {
                 case .success:
                     self.collectionView.reloadData()
+                    self.navigationItem.rightBarButtonItem?.title = self.viewModel.favoritesButtonText
+                    self.activityView.hideView()
+                case .loading:
+                    self.activityView.showView()
+                case .error:
+                    self.activityView.hideView()
                 }
             })
             .disposed(by: disposeBag)
