@@ -120,7 +120,9 @@ private extension MainImageViewController {
                 switch effect {
                 case .character(let model):
                     let isFavorite = model.isFavorite
-                    self.navigationItem.rightBarButtonItem?.title = isFavorite ? "Unfavorite": "Favorite"
+                    let favoriteText = "main_image_model_favorite".localizedString()
+                    let unfavoriteText = "main_image_model_unfavorite".localizedString()
+                    self.navigationItem.rightBarButtonItem?.title = isFavorite ? unfavoriteText: favoriteText
                 }
             })
             .disposed(by: disposeBag)

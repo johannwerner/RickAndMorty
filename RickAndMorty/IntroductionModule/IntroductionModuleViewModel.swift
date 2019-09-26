@@ -62,6 +62,7 @@ private extension IntroductionModuleViewModel {
                     self.viewEffect.accept(.loading)
                 case .error:
                     self.viewEffect.accept(.error)
+                    self.coordinator.showError(animated: true)
                 case .success(let listOfLocations):
                     self.viewEffect.accept(.success)
                     self.coordinator.showCharacterList(models: listOfLocations, animated: true)

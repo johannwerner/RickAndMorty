@@ -75,16 +75,13 @@ extension MainImageViewModel {
 
 private extension MainImageViewModel {
     func favoriteChacater(model: inout MainImageModel.ImageModel) {
-        self.useCase.favoriteCharacter(
+        let status = self.useCase.favoriteCharacter(
             model: &model
            )
-        .subscribe(onNext: { [unowned self] status in
-            switch status {
-            case .character(let model):
+        switch status {
+        case .character(let model):
             self.viewEffect.accept(.character(model))
-                }
-            })
-            .disposed(by: disposeBag)
+        }
     }
     
     func addFavoritesToModel() {
@@ -103,6 +100,16 @@ private extension MainImageViewModel {
         })
         self.model.models = newModels
     }
+    
+    func updateFavorite(model: MainImageModel.ImageModel) {
+        let newModels = self.model.models.map({ character -> MainImageModel.ImageModel in
+            if character.id == model.id {
+                return model
+            }
+                return character
+            })
+        self.model.models = newModels
+    }
 }
 
 // MARK: - Rx
@@ -113,10 +120,10 @@ private extension MainImageViewModel {
     func observeViewEffect() {
         viewEffect
             .asObservable()
-            .subscribe(onNext: { effect in
+            .subscribe(onNext: { [unowned self] effect in
                 switch effect {
-                case .character:
-                    break
+                case .character(let model):
+                    self.updateFavorite(model: model)
                 }
             })
             .disposed(by: disposeBag)

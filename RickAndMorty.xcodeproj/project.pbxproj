@@ -53,6 +53,16 @@
 		9380E5D0233D250A00E2B383 /* MainImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */; };
 		9380E5D2233D2B3800E2B383 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */; };
 		9380E5D4233D42F500E2B383 /* AttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D3233D42F400E2B383 /* AttributedStringTests.swift */; };
+		9380E5D6233D50EC00E2B383 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 9380E5D5233D50EC00E2B383 /* readme.md */; };
+		9380E5E0233D513D00E2B383 /* ErrorModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */; };
+		9380E5E1233D513D00E2B383 /* ErrorModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D9233D513C00E2B383 /* ErrorModuleViewController.swift */; };
+		9380E5E2233D513D00E2B383 /* ErrorModuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DA233D513C00E2B383 /* ErrorModuleViewModel.swift */; };
+		9380E5E3233D513D00E2B383 /* ErrorModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DB233D513C00E2B383 /* ErrorModuleCoordinator.swift */; };
+		9380E5E4233D513D00E2B383 /* ErrorModuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DC233D513C00E2B383 /* ErrorModuleModel.swift */; };
+		9380E5E5233D513D00E2B383 /* ErrorModuleInteractorApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DD233D513C00E2B383 /* ErrorModuleInteractorApi.swift */; };
+		9380E5E6233D513D00E2B383 /* ErrorModuleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */; };
+		9380E5E7233D513D00E2B383 /* ErrorModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */; };
+		9380E5E9233D51E700E2B383 /* Rick.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9380E5E8233D51E700E2B383 /* Rick.strings */; };
 		EEA54FF91669826220F29A51 /* Pods_RickAndMortyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4B561A61C32075036E6429 /* Pods_RickAndMortyTests.framework */; };
 		FA5EB98022CB57FF790494FB /* Pods_RickAndMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE97CF9E7DFA987A99B2A7E /* Pods_RickAndMorty.framework */; };
 /* End PBXBuildFile section */
@@ -121,6 +131,16 @@
 		9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainImageUseCase.swift; sourceTree = "<group>"; };
 		9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		9380E5D3233D42F400E2B383 /* AttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringTests.swift; sourceTree = "<group>"; };
+		9380E5D5233D50EC00E2B383 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleConfigurator.swift; sourceTree = "<group>"; };
+		9380E5D9233D513C00E2B383 /* ErrorModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleViewController.swift; sourceTree = "<group>"; };
+		9380E5DA233D513C00E2B383 /* ErrorModuleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleViewModel.swift; sourceTree = "<group>"; };
+		9380E5DB233D513C00E2B383 /* ErrorModuleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleCoordinator.swift; sourceTree = "<group>"; };
+		9380E5DC233D513C00E2B383 /* ErrorModuleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleModel.swift; sourceTree = "<group>"; };
+		9380E5DD233D513C00E2B383 /* ErrorModuleInteractorApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleInteractorApi.swift; sourceTree = "<group>"; };
+		9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleUseCase.swift; sourceTree = "<group>"; };
+		9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleInteractor.swift; sourceTree = "<group>"; };
+		9380E5E8233D51E700E2B383 /* Rick.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Rick.strings; sourceTree = "<group>"; };
 		CCE322D90CC0BC3503DDEF65 /* Pods-RickAndMortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.release.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.release.xcconfig"; sourceTree = "<group>"; };
 		DA25FA4D0CBD7F6DD814E9B4 /* Pods-RickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-RickAndMorty/Pods-RickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
 		F5D184B89DE7264633F99D1F /* Pods-RickAndMortyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMortyTests.debug.xcconfig"; path = "Target Support Files/Pods-RickAndMortyTests/Pods-RickAndMortyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +189,7 @@
 		9380E54C233D16AC00E2B383 = {
 			isa = PBXGroup;
 			children = (
+				9380E5D5233D50EC00E2B383 /* readme.md */,
 				9380E557233D16AC00E2B383 /* RickAndMorty */,
 				9380E56E233D16AF00E2B383 /* RickAndMortyTests */,
 				9380E556233D16AC00E2B383 /* Products */,
@@ -189,6 +210,7 @@
 		9380E557233D16AC00E2B383 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				9380E5D7233D513C00E2B383 /* ErrorModule */,
 				9380E5C0233D250A00E2B383 /* MainImageModule */,
 				9380E5AA233D1F7300E2B383 /* ImageGalleryModule */,
 				9380E58B233D17D200E2B383 /* SupportingFiles */,
@@ -250,6 +272,7 @@
 				9380E58F233D17F700E2B383 /* UIAplication+Window.swift */,
 				9380E592233D17F700E2B383 /* ViewController.swift */,
 				9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */,
+				9380E5E8233D51E700E2B383 /* Rick.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -327,6 +350,21 @@
 				9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */,
 			);
 			path = MainImageModule;
+			sourceTree = "<group>";
+		};
+		9380E5D7233D513C00E2B383 /* ErrorModule */ = {
+			isa = PBXGroup;
+			children = (
+				9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */,
+				9380E5D9233D513C00E2B383 /* ErrorModuleViewController.swift */,
+				9380E5DA233D513C00E2B383 /* ErrorModuleViewModel.swift */,
+				9380E5DB233D513C00E2B383 /* ErrorModuleCoordinator.swift */,
+				9380E5DC233D513C00E2B383 /* ErrorModuleModel.swift */,
+				9380E5DD233D513C00E2B383 /* ErrorModuleInteractorApi.swift */,
+				9380E5DE233D513C00E2B383 /* ErrorModuleUseCase.swift */,
+				9380E5DF233D513C00E2B383 /* ErrorModuleInteractor.swift */,
+			);
+			path = ErrorModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +453,8 @@
 			files = (
 				9380E565233D16AF00E2B383 /* LaunchScreen.storyboard in Resources */,
 				9380E562233D16AF00E2B383 /* Preview Assets.xcassets in Resources */,
+				9380E5E9233D51E700E2B383 /* Rick.strings in Resources */,
+				9380E5D6233D50EC00E2B383 /* readme.md in Resources */,
 				9380E55F233D16AF00E2B383 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,10 +549,13 @@
 				9380E593233D17F700E2B383 /* NSObject+App.swift in Sources */,
 				9380E5B9233D1F7300E2B383 /* ImageGalleryModuleCoordinator.swift in Sources */,
 				9380E5CB233D250A00E2B383 /* MainImageModel.swift in Sources */,
+				9380E5E3233D513D00E2B383 /* ErrorModuleCoordinator.swift in Sources */,
 				9380E586233D17BA00E2B383 /* IntroductionModuleModel.swift in Sources */,
 				9380E5C9233D250A00E2B383 /* MainImageInteractor.swift in Sources */,
 				9380E589233D17BA00E2B383 /* IntroductionModuleCoordinator.swift in Sources */,
+				9380E5E5233D513D00E2B383 /* ErrorModuleInteractorApi.swift in Sources */,
 				9380E5D2233D2B3800E2B383 /* UserDefaultsManager.swift in Sources */,
+				9380E5E7233D513D00E2B383 /* ErrorModuleInteractor.swift in Sources */,
 				9380E5A1233D182300E2B383 /* Array+App.swift in Sources */,
 				9380E5A2233D182300E2B383 /* AttributedStringManager.swift in Sources */,
 				9380E5B7233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift in Sources */,
@@ -523,21 +566,26 @@
 				9380E5BD233D1F7300E2B383 /* ImageGalleryModuleViewController.swift in Sources */,
 				9380E595233D17F700E2B383 /* AppViewController.swift in Sources */,
 				9380E5BC233D1F7300E2B383 /* ImageGalleryModuleModel.swift in Sources */,
+				9380E5E6233D513D00E2B383 /* ErrorModuleUseCase.swift in Sources */,
 				9380E5B8233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift in Sources */,
 				9380E5CC233D250A00E2B383 /* MainImageViewController.swift in Sources */,
 				9380E588233D17BA00E2B383 /* IntroductionModuleUseCase.swift in Sources */,
 				9380E58A233D17BA00E2B383 /* IntroductionModuleInteractor.swift in Sources */,
 				9380E5A8233D1EEF00E2B383 /* ImageCollectionProtocol.swift in Sources */,
+				9380E5E4233D513D00E2B383 /* ErrorModuleModel.swift in Sources */,
 				9380E597233D17F700E2B383 /* ColorTheme.swift in Sources */,
 				9380E583233D17BA00E2B383 /* IntroductionModuleViewController.swift in Sources */,
 				9380E596233D17F700E2B383 /* UIAplication+Window.swift in Sources */,
 				9380E559233D16AC00E2B383 /* AppDelegate.swift in Sources */,
+				9380E5E1233D513D00E2B383 /* ErrorModuleViewController.swift in Sources */,
 				9380E5BA233D1F7300E2B383 /* ImageGalleryItem.swift in Sources */,
+				9380E5E2233D513D00E2B383 /* ErrorModuleViewModel.swift in Sources */,
 				9380E598233D17F700E2B383 /* Async.swift in Sources */,
 				9380E599233D17F700E2B383 /* ViewController.swift in Sources */,
 				9380E5CE233D250A00E2B383 /* MainImageViewModel.swift in Sources */,
 				9380E59F233D182300E2B383 /* String+App.swift in Sources */,
 				9380E594233D17F700E2B383 /* ObservableType.swift in Sources */,
+				9380E5E0233D513D00E2B383 /* ErrorModuleConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

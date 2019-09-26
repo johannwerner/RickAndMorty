@@ -59,3 +59,15 @@ private extension ImageGalleryItem {
         self.images = imageGalleryImages
     }
 }
+
+// MARK: - Navigation to Error View
+
+extension IntroductionModuleCoordinator {
+    func showError(
+        animated: Bool
+    ) {
+        let configurator = ErrorModuleConfigurator(errorModuleInteractor: ErrorModuleInteractorApi())
+        let coordinator = ErrorModuleCoordinator(navigationController: navigationController, configurator: configurator)
+        coordinator.showError(animated: animated)
+    }
+}

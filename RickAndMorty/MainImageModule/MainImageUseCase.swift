@@ -18,9 +18,8 @@ final class MainImageUseCase {
 
 extension MainImageUseCase {
     
-    func favoriteCharacter(model: inout MainImageModel.ImageModel) -> Observable<MainImageStatus>  {
-        
-        Observable.just(MainImageStatus.character(model))
+    func favoriteCharacter(model: inout MainImageModel.ImageModel) -> MainImageStatus  {
+        MainImageStatus.character(isFavorite(model: &model))
     }
     
     func isFavorite(model: inout MainImageModel.ImageModel) -> MainImageModel.ImageModel {

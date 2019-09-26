@@ -80,7 +80,7 @@ private extension  IntroductionModuleViewController {
         
         primaryButton.backgroundColor = ColorTheme.primaryAppColor
         primaryButton.setTitle(
-            "Next",
+            "introduction_model_primary_button".localizedString(),
             for: .normal
         )
         
@@ -103,7 +103,7 @@ private extension  IntroductionModuleViewController {
         subtitleLabel.autoAlignAxis(toSuperviewAxis: .vertical)
         subtitleLabel.autoPinEdge(.top, to: .bottom, of: titleLabel, withOffset: 17)
         subtitleLabel.font = UIFont.systemFont(ofSize: 17)
-        let subtitleString = "<b><custom>iOS</custom></b> Challenge"
+        let subtitleString = "introduction_model_subtitle_text".localizedString()
         
         let attributesForBold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
         let attributesForCustom = [NSAttributedString.Key.foregroundColor: ColorTheme.primaryAppColor]
@@ -136,7 +136,7 @@ private extension  IntroductionModuleViewController {
     func stopLoadingAnimations() {
         activityIndicator.stopAnimating()
         primaryButton.setTitle(
-            "Next",
+            "introduction_model_primary_button".localizedString(),
             for: .normal
         )
         activityView.hideView()
