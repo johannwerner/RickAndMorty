@@ -31,11 +31,11 @@ class ImageGalleryModuleCoordinator {
 
 extension ImageGalleryModuleCoordinator {
     
-    func showImageGallery(model: ImageGalleryItem, animated: Bool) {
+    func showImageGallery(model: ResponseModel, animated: Bool) {
         let viewModel = ImageGalleryModuleViewModel(
             coordinator: self,
             configurator: configurator,
-            model: ImageGalleryModuleModel(imageGalleryItem: model)
+            model: model
         )
         let viewController = ImageGalleryModuleViewController(viewModel: viewModel)
         navigationController.pushViewController(
@@ -51,12 +51,9 @@ extension ImageGalleryModuleCoordinator {
 
 extension ImageGalleryModuleCoordinator {
     func showLargeImage(
-        imageGalleryModuleModel: ImageGalleryModuleModel,
+        model: ResponseModel,
         animted: Bool
         ) {
-        let model = MainImageModel(
-            model: imageGalleryModuleModel
-        )
         let interactor = MainImageInteractorApi()
         let configurator = MainImageConfigurator(mainImageInteractor: interactor)
 
@@ -72,23 +69,23 @@ extension ImageGalleryModuleCoordinator {
     }
 }
 
-private extension MainImageModel {
-    init(model: ImageGalleryModuleModel) {
-        assert(model.selectedIndex != nil)
-        let mainImageModels = model.imageGalleryItem.images.compactMap { imageGalleryItem -> MainImageModel.ImageModel? in
-            MainImageModel.ImageModel(imageGalleryItemImage: imageGalleryItem)
-        }
-        self.selectedIndex = model.selectedIndex ?? 0
-        self.models = mainImageModels
-    }
-}
-
-private extension MainImageModel.ImageModel {
-    init(imageGalleryItemImage: ImageGalleryItem.Image) {
-        self = MainImageModel.ImageModel(
-            url: imageGalleryItemImage.url,
-            id: imageGalleryItemImage.id,
-            isFavorite: false
-        )
-    }
-}
+//private extension MainImageModel {
+//    init(model: ImageGalleryModuleModel) {
+//        assert(model.selectedIndex != nil)
+//        let mainImageModels = model.imageGalleryItem.images.compactMap { imageGalleryItem -> MainImageModel.ImageModel? in
+//            MainImageModel.ImageModel(imageGalleryItemImage: imageGalleryItem)
+//        }
+//        self.selectedIndex = model.selectedIndex ?? 0
+//        self.models = mainImageModels
+//    }
+//}
+//
+//private extension MainImageModel.ImageModel {
+//    init(imageGalleryItemImage: ImageGalleryItem.Image) {
+//        self = MainImageModel.ImageModel(
+//            url: imageGalleryItemImage.url,
+//            id: imageGalleryItemImage.id,
+//            isFavorite: false
+//        )
+//    }
+//}

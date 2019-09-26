@@ -2,7 +2,7 @@ import RxSwift
 
 /// Currently does nothing but exists for future use
 /// - Requires: `RxSwift`, `Async`
-final class MainImageUseCase {
+final class FavoriteUseCase {
     
     // MARK: Dependencies
     private let interactor: MainImageInteractor
@@ -16,13 +16,13 @@ final class MainImageUseCase {
 
 // MARK: - Public functions
 
-extension MainImageUseCase {
+extension FavoriteUseCase {
     
-    func favoriteCharacter(model: inout MainImageModel.ImageModel) -> MainImageStatus  {
+    func favoriteCharacter(model: inout CharacterModel) -> MainImageStatus  {
         MainImageStatus.character(isFavorite(model: &model))
     }
     
-    func isFavorite(model: inout MainImageModel.ImageModel) -> MainImageModel.ImageModel {
+    func isFavorite(model: inout CharacterModel) -> CharacterModel {
         var favorites = UserDefaultsManager().listOfFavoriteIds
         let isFavorite = favorites.contains(model.id)
         if isFavorite {

@@ -91,12 +91,8 @@ private extension ImageGalleryModuleViewController {
             .viewEffect
             .subscribe(onNext: { [unowned self] effect in
                 switch effect {
-                case .showImages:
+                case .success:
                     self.collectionView.reloadData()
-                    self.primaryButton.isHidden = true
-                    UIView.animate(withDuration: 0.4, animations: { [weak self]  in
-                        self?.collectionView.alpha = 1.0
-                    })
                 }
             })
             .disposed(by: disposeBag)
@@ -106,9 +102,7 @@ private extension ImageGalleryModuleViewController {
 // MARK: - CollectionView
 extension ImageGalleryModuleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         viewModel.numberOfModels
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,6 +122,12 @@ extension ImageGalleryModuleViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewAction.accept(.selectedIndex(indexPath.row))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.numberOfModels - 1 {
+            viewAction.accept(.loadMore)
+        }
     }
 }
 

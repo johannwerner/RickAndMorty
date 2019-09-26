@@ -23,17 +23,11 @@ extension IntroductionModuleUseCase {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    guard let imageData = data as? Dictionary<String, Any> else {
-                         return.error
-                     }
-                    guard let listOfArray = imageData["results"] as? Array<Dictionary<String, Any>> else {
+                    
+                    guard let responseModel = IntroductionResponseModel.parse(from: data) else {
                         return .error
                     }
-                    let listOfModels = listOfArray.compactMap({ dictionary -> CharacterModel? in
-                        let imageGalleryModel = CharacterModel.parse(from: dictionary)
-                        return imageGalleryModel
-                    })
-                    return .success(listOfModels)
+                    return .success(responseModel)
                 case .error:
                     return .error
                 }

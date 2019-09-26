@@ -2,7 +2,7 @@
 enum IntroductionModuleStatus {
     case loading
     case error
-    case success([CharacterModel])
+    case success(IntroductionResponseModel)
 }
 
 /// View effect enum for  IntroductionModule.
@@ -22,7 +22,19 @@ struct IntroductionConstants {
     static let rickAndMortyApi = "https://rickandmortyapi.com/api/character/"
 }
 
-struct CharacterModel: Codable {
-    var image: String
-    var id: Int
+struct IntroductionResponseModel: Codable {
+    var results: [IntroductionResponseModel.CharacterModel]
+    var info: Info
+    struct Info: Codable {
+        var next: String
+    }
+    
+    struct CharacterModel: Codable, ImageCollectionProtocol {
+        var image: String
+        var id: Int
+        
+        var imageUrlToShow: String {
+            image
+        }
+    }
 }

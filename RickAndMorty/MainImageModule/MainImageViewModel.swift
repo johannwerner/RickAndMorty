@@ -11,22 +11,22 @@ final class MainImageViewModel {
     
     // MARK: Dependencies
     private let coordinator: MainImageCoordinator
-    private let useCase: MainImageUseCase
+    private let useCase: FavoriteUseCase
     
     // MARK: Tooling
     private let disposeBag = DisposeBag()
     
     // MARK: - Properties
-    private var model: MainImageModel
+    private var model: ResponseModel
 
     // MARK: - Life cycle
     
     init(coordinator: MainImageCoordinator,
          configurator: MainImageConfigurator,
-         model: MainImageModel
+         model: ResponseModel
         ) {
         self.coordinator = coordinator
-        self.useCase = MainImageUseCase(interactor: configurator.mainImageInteractor)
+        self.useCase = FavoriteUseCase(interactor: configurator.mainImageInteractor)
         self.model = model
         observeViewEffect()
         addFavoritesToModel()
@@ -38,15 +38,15 @@ final class MainImageViewModel {
 extension MainImageViewModel {
 
     var numberOfModels: Int {
-        model.models.count
+        model.results.count
     }
     
     var selectedIndex: Int {
-        model.selectedIndex
+        model.selectedIndex ?? 0
     }
     
-    func modelForIndex(index: Int) -> MainImageModel.ImageModel? {
-        model.models[safe: index]
+    func modelForIndex(index: Int) -> CharacterModel? {
+        model.results[safe: index]
     }
     
     func favoriteButtonText(index: Int) -> String {
@@ -74,7 +74,7 @@ extension MainImageViewModel {
 // MARK: - Private functions
 
 private extension MainImageViewModel {
-    func favoriteChacater(model: inout MainImageModel.ImageModel) {
+    func favoriteChacater(model: inout CharacterModel) {
         let status = self.useCase.favoriteCharacter(
             model: &model
            )
@@ -88,27 +88,27 @@ private extension MainImageViewModel {
         let listOfFavoriteIds = UserDefaultsManager().listOfFavoriteIds
         
         listOfFavoriteIds.forEach { id in
-            var character = model.models.first(where: { $0.id == id})
+            var character = model.results.first(where: { $0.id == id})
             character?.isFavorite = true
         }
         
-        let newModels = model.models.map({ character -> MainImageModel.ImageModel in
+        let newModels = model.results.map({ character -> CharacterModel in
             var characterCopy = character
             let somevalue = listOfFavoriteIds.first(where: { $0 == characterCopy.id})
             characterCopy.isFavorite = somevalue != nil
             return characterCopy
         })
-        self.model.models = newModels
+        self.model.results = newModels
     }
     
-    func updateFavorite(model: MainImageModel.ImageModel) {
-        let newModels = self.model.models.map({ character -> MainImageModel.ImageModel in
+    func updateFavorite(model: CharacterModel) {
+        let newModels = self.model.results.map({ character -> CharacterModel in
             if character.id == model.id {
                 return model
             }
                 return character
             })
-        self.model.models = newModels
+        self.model.results = newModels
     }
 }
 

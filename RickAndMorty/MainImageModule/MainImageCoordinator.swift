@@ -28,23 +28,17 @@ final class MainImageCoordinator {
 
 extension MainImageCoordinator {
     
-    func showLargeImage(model: MainImageModel, animated: Bool) {
-       showLargeImageImplementation(model: model, animated: animated)
-    }
-}
-
-private extension MainImageCoordinator {
-    func showLargeImageImplementation(model: MainImageModel, animated: Bool) {
-        let viewModel = MainImageViewModel(
-            coordinator: self,
-            configurator: configurator,
-            model: model
-        )
-        let viewController = MainImageViewController(viewModel: viewModel)
-        navigationController.pushViewController(
-            viewController,
-            animated: animated
-        )
+    func showLargeImage(model: ResponseModel, animated: Bool) {
+               let viewModel = MainImageViewModel(
+           coordinator: self,
+           configurator: configurator,
+           model: model
+       )
+       let viewController = MainImageViewController(viewModel: viewModel)
+       navigationController.pushViewController(
+           viewController,
+           animated: animated
+       )
     }
 }
 

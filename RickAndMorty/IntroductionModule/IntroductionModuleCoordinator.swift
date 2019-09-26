@@ -42,24 +42,52 @@ extension  IntroductionModuleCoordinator {
 
 extension  IntroductionModuleCoordinator {
 
-    func showCharacterList(models: [CharacterModel], animated: Bool) {
+    func showCharacterList(model: IntroductionResponseModel, animated: Bool) {
             let interactor = ImageGalleryModuleInteractorApi()
             let configurator = ImageGalleryModuleConfigurator(imageGalleryModuleInteractor: interactor)
             let coordinator = ImageGalleryModuleCoordinator(navigationController: navigationController, configurator: configurator)
-        let imageGalleryItem = ImageGalleryItem(models: models)
-        coordinator.showImageGallery(model: imageGalleryItem, animated: true)
+        let responseModel = ResponseModel(introductionResponseModel: model)
+        coordinator.showImageGallery(model: responseModel, animated: true)
     }
+    
+    
 }
 
-private extension ImageGalleryItem {
-    init(models: [CharacterModel]) {
-        let imageGalleryImages = models.compactMap { character -> ImageGalleryItem.Image? in
-            ImageGalleryItem.Image(url: character.image, id: character.id)
+private extension ResponseModel {
+    init(introductionResponseModel: IntroductionResponseModel) {
+        let results = introductionResponseModel.results.map { character -> CharacterModel in
+            CharacterModel(introductionCharacter: character)
         }
-        self.images = imageGalleryImages
+        let info = ResponseModel.Info(next: introductionResponseModel.info.next)
+        self.results = results
+        self.info = info
+        self.selectedIndex = nil
     }
 }
 
+private extension CharacterModel {
+    init(introductionCharacter: IntroductionResponseModel.CharacterModel) {
+        self.image = introductionCharacter.image
+        self.isFavorite = false
+        self.id = introductionCharacter.id      
+    }
+}
+
+private extension ResponseModel.Info {
+    init(introductionInfo: IntroductionResponseModel.Info) {
+        self.next = introductionInfo.next
+    }
+}
+//
+//private extension ImageGalleryItem {
+//    init(models: [CharacterModel]) {
+//        let imageGalleryImages = models.compactMap { character -> ImageGalleryItem.Image? in
+//            ImageGalleryItem.Image(url: character.image, id: character.id)
+//        }
+//        self.images = imageGalleryImages
+//    }
+//}
+//
 // MARK: - Navigation to Error View
 
 extension IntroductionModuleCoordinator {

@@ -50,7 +50,7 @@
 		9380E5CD233D250A00E2B383 /* MainImageConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C5233D250A00E2B383 /* MainImageConfigurator.swift */; };
 		9380E5CE233D250A00E2B383 /* MainImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C6233D250A00E2B383 /* MainImageViewModel.swift */; };
 		9380E5CF233D250A00E2B383 /* MainImageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C7233D250A00E2B383 /* MainImageCoordinator.swift */; };
-		9380E5D0233D250A00E2B383 /* MainImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */; };
+		9380E5D0233D250A00E2B383 /* FavoriteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */; };
 		9380E5D2233D2B3800E2B383 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */; };
 		9380E5D4233D42F500E2B383 /* AttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380E5D3233D42F400E2B383 /* AttributedStringTests.swift */; };
 		9380E5D6233D50EC00E2B383 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 9380E5D5233D50EC00E2B383 /* readme.md */; };
@@ -128,7 +128,7 @@
 		9380E5C5233D250A00E2B383 /* MainImageConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainImageConfigurator.swift; sourceTree = "<group>"; };
 		9380E5C6233D250A00E2B383 /* MainImageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainImageViewModel.swift; sourceTree = "<group>"; };
 		9380E5C7233D250A00E2B383 /* MainImageCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainImageCoordinator.swift; sourceTree = "<group>"; };
-		9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainImageUseCase.swift; sourceTree = "<group>"; };
+		9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteUseCase.swift; sourceTree = "<group>"; };
 		9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		9380E5D3233D42F400E2B383 /* AttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringTests.swift; sourceTree = "<group>"; };
 		9380E5D5233D50EC00E2B383 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
@@ -347,7 +347,7 @@
 				9380E5C5233D250A00E2B383 /* MainImageConfigurator.swift */,
 				9380E5C6233D250A00E2B383 /* MainImageViewModel.swift */,
 				9380E5C7233D250A00E2B383 /* MainImageCoordinator.swift */,
-				9380E5C8233D250A00E2B383 /* MainImageUseCase.swift */,
+				9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */,
 			);
 			path = MainImageModule;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 				9380E5A1233D182300E2B383 /* Array+App.swift in Sources */,
 				9380E5A2233D182300E2B383 /* AttributedStringManager.swift in Sources */,
 				9380E5B7233D1F7300E2B383 /* ImageGalleryModuleConfigurator.swift in Sources */,
-				9380E5D0233D250A00E2B383 /* MainImageUseCase.swift in Sources */,
+				9380E5D0233D250A00E2B383 /* FavoriteUseCase.swift in Sources */,
 				9380E584233D17BA00E2B383 /* IntroductionModuleConfigurator.swift in Sources */,
 				9380E587233D17BA00E2B383 /* IntroductionModuleInteractorApi.swift in Sources */,
 				9380E5A9233D1EEF00E2B383 /* MainImageCollectionViewCell.swift in Sources */,

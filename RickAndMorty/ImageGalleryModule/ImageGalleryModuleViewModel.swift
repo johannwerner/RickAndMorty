@@ -7,8 +7,8 @@ import RxSwift
 class ImageGalleryModuleViewModel {
 
     // MARK: - Properties
-    private var model: ImageGalleryModuleModel
-    
+    private var responseModel: ResponseModel
+
     // MARK: - View Effect
     let viewEffect = PublishRelay<ImageGalleryModuleViewEffect>()
     
@@ -23,11 +23,11 @@ class ImageGalleryModuleViewModel {
     
     init(coordinator: ImageGalleryModuleCoordinator,
          configurator: ImageGalleryModuleConfigurator,
-         model: ImageGalleryModuleModel
+         model: ResponseModel
         ) {
         self.coordinator = coordinator
         self.useCase = ImageGalleryModuleUseCase(interactor: configurator.imageGalleryModuleInteractor)
-        self.model = model
+        self.responseModel = model
         
         observeViewEffect()
     }
@@ -38,11 +38,25 @@ class ImageGalleryModuleViewModel {
 extension ImageGalleryModuleViewModel {
     
     var numberOfModels: Int {
-        model.imageGalleryItem.images.count
+        responseModel.results.count
     }
     
-    func modelForIndex(index: Int) -> ImageGalleryItem.Image? {
-        model.imageGalleryItem.images[safe: index]
+    func modelForIndex(index: Int) -> CharacterModel? {
+        responseModel.results[safe: index]
+    }
+    
+    func showNextView() {
+        useCase.getCharacters(url: responseModel.info.next)
+            .subscribe(onNext: { [unowned self] status in
+                switch status {
+                case .success(let model):
+                    self.responseModel.results.append(contentsOf: model.results)
+                    self.viewEffect.accept(.success)
+                case .loading: break
+                case .error: break
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func bind(to viewAction: PublishRelay<ImageGalleryModuleViewAction>) {
@@ -50,14 +64,14 @@ extension ImageGalleryModuleViewModel {
             .asObservable()
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
-                case .showImages:
-                    self.showImages()
                 case .selectedIndex(let index):
-                    self.model.selectedIndex = index
+                    self.responseModel.selectedIndex = index
                     self.coordinator.showLargeImage(
-                        imageGalleryModuleModel: self.model,
+                        model: self.responseModel,
                         animted: true
                     )
+                case .loadMore:
+                    self.showNextView()
                 }
             })
             .disposed(by: disposeBag)
@@ -67,10 +81,7 @@ extension ImageGalleryModuleViewModel {
 // MARK: - Private functions
 
 private extension ImageGalleryModuleViewModel {
-    
-    func showImages() {
-        self.viewEffect.accept(.showImages)
-    }
+
 }
 
 // MARK: - Rx
@@ -83,8 +94,7 @@ private extension ImageGalleryModuleViewModel {
             .asObservable()
             .subscribe(onNext: { effect in
                 switch effect {
-                case .showImages:
-                    break
+                case .success: break
                 }
             })
             .disposed(by: disposeBag)

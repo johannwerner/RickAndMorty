@@ -18,7 +18,7 @@ extension IntroductionModuleInteractorApi {
                     Observable.just(json)
                 }.async()
         }
-    }
+}
 
 private extension IntroductionModuleInteractorApi {
     var url: String {
