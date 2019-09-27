@@ -2,16 +2,13 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-/// <#Brief description of the purpose of the coordinator#>
+///
 /// - Requires: `RxSwift`
-class ImageGalleryModuleCoordinator {
+final class ImageGalleryModuleCoordinator {
 
     // MARK: Dependencies
     private let navigationController: UINavigationController
     private let configurator: ImageGalleryModuleConfigurator
-    
-    // MARK: - Properties
-    fileprivate let listOfFavoriteIds = UserDefaultsManager().listOfFavoriteIds
     
     // MARK: Tooling
     private let disposeBag = DisposeBag()
@@ -69,23 +66,17 @@ extension ImageGalleryModuleCoordinator {
     }
 }
 
-//private extension MainImageModel {
-//    init(model: ImageGalleryModuleModel) {
-//        assert(model.selectedIndex != nil)
-//        let mainImageModels = model.imageGalleryItem.images.compactMap { imageGalleryItem -> MainImageModel.ImageModel? in
-//            MainImageModel.ImageModel(imageGalleryItemImage: imageGalleryItem)
-//        }
-//        self.selectedIndex = model.selectedIndex ?? 0
-//        self.models = mainImageModels
-//    }
-//}
-//
-//private extension MainImageModel.ImageModel {
-//    init(imageGalleryItemImage: ImageGalleryItem.Image) {
-//        self = MainImageModel.ImageModel(
-//            url: imageGalleryItemImage.url,
-//            id: imageGalleryItemImage.id,
-//            isFavorite: false
-//        )
-//    }
-//}
+// MARK: - Navigation to Error View
+
+extension ImageGalleryModuleCoordinator {
+    func showError(
+        animated: Bool
+    ) {
+        let configurator = ErrorModuleConfigurator(errorModuleInteractor: ErrorModuleInteractorApi())
+        let coordinator = ErrorModuleCoordinator(
+            navigationController: navigationController,
+            configurator: configurator
+        )
+        coordinator.showError(animated: animated)
+    }
+}

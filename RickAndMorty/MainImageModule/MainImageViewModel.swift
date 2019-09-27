@@ -60,7 +60,7 @@ extension MainImageViewModel {
             .subscribe(onNext: { [unowned self] viewAction in
                 switch viewAction {
                 case .favoriteIndex(let index):
-                    guard var model = self.modelForIndex(index: index) else {
+                    guard let model = self.modelForIndex(index: index) else {
                         assertionFailure("model is nil")
                         return
                     }

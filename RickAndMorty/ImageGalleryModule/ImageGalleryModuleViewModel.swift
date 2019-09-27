@@ -1,10 +1,10 @@
 import RxCocoa
 import RxSwift
 
-/// <#Brief description of the purpose of the view model#>
+/// 
 /// - Requires: `RxSwift`, `MvRx`
 /// - Note: A view model can refer to one or more use cases.
-class ImageGalleryModuleViewModel {
+final class ImageGalleryModuleViewModel {
 
     // MARK: - Properties
     var isShowingFavorites = false
@@ -49,7 +49,7 @@ extension ImageGalleryModuleViewModel {
     }
     
     var favoritesButtonText: String {
-        isShowingFavorites ? "Hide Favorites": "Show Favorites"
+        isShowingFavorites ? hideFavoritesText: showFavoritesText
     }
     
     func modelForIndex(index: Int) -> CharacterModel? {
@@ -74,6 +74,11 @@ extension ImageGalleryModuleViewModel {
     }
     
     func showFavorites() {
+        if listOfIds.isEmpty == true {
+            favorites = []
+            viewEffect.accept(.success)
+            return
+        }
         favoriteUseCase.getFavoriteCharacters()
             .subscribe(onNext: { [unowned self] status in
                 switch status {
@@ -107,9 +112,7 @@ extension ImageGalleryModuleViewModel {
                         self.showNextView()
                     }
                 case .showFavorites:
-                    if self.isShowingFavorites == false {
-                        self.showFavorites()
-                    }
+                    self.shouldShowFavorites()
                     self.isShowingFavorites = !self.isShowingFavorites
                     self.viewEffect.accept(.success)
                 }
@@ -118,11 +121,29 @@ extension ImageGalleryModuleViewModel {
     }
 }
 
-// MARK: - Private functions
+// MARK: - Private
 
 private extension ImageGalleryModuleViewModel {
     var results: [CharacterModel] {
         isShowingFavorites ? favorites : allCharacters
+    }
+    
+    var listOfIds: [Int] {
+        UserDefaultsManager().listOfFavoriteIds
+    }
+    
+    var showFavoritesText: String {
+        "image_gallery_model_show_favorites".localizedString()
+    }
+    
+    var hideFavoritesText: String {
+        "image_gallery_model_hide_favorites".localizedString()
+    }
+    
+    func shouldShowFavorites() {
+        if isShowingFavorites == false {
+            self.showFavorites()
+        }
     }
 }
 
@@ -138,7 +159,8 @@ private extension ImageGalleryModuleViewModel {
                 switch effect {
                 case .success: break
                 case .loading: break
-                case   .error: break
+                case .error:
+                    self.coordinator.showError(animated: true)
                 }
             })
             .disposed(by: disposeBag)

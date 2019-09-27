@@ -52,41 +52,6 @@ extension  IntroductionModuleCoordinator {
     
 }
 
-//private extension ResponseModel {
-//    init(introductionResponseModel: ResponseModel) {
-//        let results = introductionResponseModel.results.map { character -> CharacterModel in
-//            CharacterModel(introductionCharacter: character)
-//        }
-//        let info = ResponseModel.Info(next: introductionResponseModel.info.next)
-//        self.results = results
-//        self.info = info
-//        self.selectedIndex = nil
-//    }
-//}
-//
-//private extension CharacterModel {
-//    init(introductionCharacter: ResponseModel.CharacterModel) {
-//        self.image = introductionCharacter.image
-//        self.isFavorite = false
-//        self.id = introductionCharacter.id
-//    }
-//}
-
-//private extension ResponseModel.Info {
-//    init(introductionInfo: ResponseModel.Info) {
-//        self.next = introductionInfo.next
-//    }
-//}
-//
-//private extension ImageGalleryItem {
-//    init(models: [CharacterModel]) {
-//        let imageGalleryImages = models.compactMap { character -> ImageGalleryItem.Image? in
-//            ImageGalleryItem.Image(url: character.image, id: character.id)
-//        }
-//        self.images = imageGalleryImages
-//    }
-//}
-//
 // MARK: - Navigation to Error View
 
 extension IntroductionModuleCoordinator {

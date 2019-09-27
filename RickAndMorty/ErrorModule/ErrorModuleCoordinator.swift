@@ -26,7 +26,9 @@ final class ErrorModuleCoordinator {
 extension ErrorModuleCoordinator {
     
     func showError(animated: Bool) {
-        let viewModel = ErrorModuleViewModel(coordinator: self, configurator: configurator)
+        let viewModel = ErrorModuleViewModel(
+            coordinator: self, configurator: configurator
+        )
         let viewController = ErrorModuleViewController(viewModel: viewModel)
         let errorNavigationController = UINavigationController(rootViewController: viewController)
         navigationController.present(errorNavigationController, animated: animated)

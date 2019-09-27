@@ -2,9 +2,9 @@ import RxSwift
 import RxCocoa
 import PureLayout
 
-/// Brief description of the purpose of the view controller
+/// 
 /// - Requires: `RxSwift`
-class ImageGalleryModuleViewController: AppViewController {
+final class ImageGalleryModuleViewController: AppViewController {
     
     // MARK: Dependencies
     private let viewModel: ImageGalleryModuleViewModel
@@ -55,7 +55,7 @@ class ImageGalleryModuleViewController: AppViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if viewModel.isShowingFavorites == true {
-        self.viewModel.showFavorites()
+            self.viewModel.showFavorites()
         }
     }
 }
@@ -73,7 +73,8 @@ private extension ImageGalleryModuleViewController {
     }
     
     func setUpNavBar() {
-        let favoriteButton = UIBarButtonItem(title: "Show Favorites", style: .done, target: self, action: #selector(showFavorites))
+        let title = viewModel.favoritesButtonText
+        let favoriteButton = UIBarButtonItem(title: title, style: .done, target: self, action: #selector(showFavorites))
         self.navigationItem.rightBarButtonItem  = favoriteButton
     }
     

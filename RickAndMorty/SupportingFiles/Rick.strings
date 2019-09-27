@@ -18,3 +18,7 @@
 "introduction_model_subtitle_text" = "<b><custom>iOS</custom></b> Challenge";
 
 "introduction_model_primary_button" = "Next";
+
+"image_gallery_model_hide_favorites" = "Hide favorites";
+
+"image_gallery_model_show_favorites" = "Show favorites";

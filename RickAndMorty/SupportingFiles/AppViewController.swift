@@ -76,11 +76,11 @@ private extension ActivityViewComponent {
             withDuration: ActivityViewStyle.animationDuration,
             delay: 0,
             options: ActivityViewStyle.animationStyle,
-            animations: { [unowned self] in
-            self.backgroundColor = .clear
-        }, completion: { [unowned self] _ in
-            self.activityIndicator.stopAnimating()
-            self.removeFromSuperview()
+            animations: { [weak self] in
+                self?.backgroundColor = .clear
+        }, completion: { [weak self] _ in
+                self?.activityIndicator.stopAnimating()
+                self?.removeFromSuperview()
         })
     }
 }

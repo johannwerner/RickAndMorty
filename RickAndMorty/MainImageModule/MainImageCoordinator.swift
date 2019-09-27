@@ -28,8 +28,11 @@ final class MainImageCoordinator {
 
 extension MainImageCoordinator {
     
-    func showLargeImage(model: ResponseModel, animated: Bool) {
-               let viewModel = MainImageViewModel(
+    func showLargeImage(
+        model: ResponseModel,
+        animated: Bool
+    ) {
+       let viewModel = MainImageViewModel(
            coordinator: self,
            configurator: configurator,
            model: model

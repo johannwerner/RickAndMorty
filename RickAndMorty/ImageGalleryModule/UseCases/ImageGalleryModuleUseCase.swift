@@ -1,6 +1,6 @@
 import RxSwift
 
-/// <#Brief description of the purpose of the use case#>
+/// 
 /// - Requires: `RxSwift`, `Async`
 class ImageGalleryModuleUseCase {
     
