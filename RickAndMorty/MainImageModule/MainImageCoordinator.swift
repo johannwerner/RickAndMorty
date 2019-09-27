@@ -1,17 +1,12 @@
 import UIKit
-import RxCocoa
-import RxSwift
 
 /// Handles the navigation in and out of MainImageCoordinator
-/// - Requires: `RxSwift`
+/// - Requires: ``
 final class MainImageCoordinator {
 
     // MARK: Dependencies
     private let navigationController: UINavigationController
     private let configurator: MainImageConfigurator
-    
-    // MARK: Tooling
-    private let disposeBag = DisposeBag()
 
     // MARK: - Life cycle
     

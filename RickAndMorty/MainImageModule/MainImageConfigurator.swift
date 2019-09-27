@@ -1,6 +1,3 @@
-import RxCocoa
-import RxSwift
-
 final class MainImageConfigurator {
     
     // MARK: Dependencies

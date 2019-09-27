@@ -1,17 +1,12 @@
 import UIKit
-import RxCocoa
-import RxSwift
 
 ///
-/// - Requires: `RxSwift`
+/// - Requires: `UIKit`
 final class ImageGalleryModuleCoordinator {
 
     // MARK: Dependencies
     private let navigationController: UINavigationController
     private let configurator: ImageGalleryModuleConfigurator
-    
-    // MARK: Tooling
-    private let disposeBag = DisposeBag()
 
     // MARK: - Life cycle
     

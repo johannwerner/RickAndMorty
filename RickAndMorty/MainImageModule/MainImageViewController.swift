@@ -61,9 +61,16 @@ private extension MainImageViewController {
     /// Initializes and configures components in controller.
     func setUpViews() {
         view.addSubview(collectionView)
+        setUpNavigationBar()
+        setUpCollectionView()
+    }
+    
+    func setUpNavigationBar() {
         let favoriteButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(favorite))
         self.navigationItem.rightBarButtonItem  = favoriteButton
-        
+    }
+    
+    func setUpCollectionView() {
         collectionView.autoPinEdge(toSuperviewEdge: .leading)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing)
         collectionView.autoAlignAxis(toSuperviewAxis: .horizontal)
@@ -72,7 +79,7 @@ private extension MainImageViewController {
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
         collectionView.register(MainImageCollectionViewCell.self, forCellWithReuseIdentifier: MainImageCollectionViewCell.className)
-        
+              
         collectionView.isHidden = true
     }
     

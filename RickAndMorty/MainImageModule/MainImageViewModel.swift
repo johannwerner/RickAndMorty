@@ -6,7 +6,7 @@ import RxSwift
 /// - Note: A view model can refer to one or more use cases.
 final class MainImageViewModel {
 
-    // MARK: MvRx
+    // MARK: ViewEffect
     let viewEffect = PublishRelay<MainImageViewEffect>()
     
     // MARK: Dependencies

@@ -41,7 +41,6 @@ private extension Array where Iterator.Element == Dictionary<String, Any> {
                 assertionFailure("parse failed")
                 return nil
             }
-            //Code in IntroductionModuleCoordinator relies on bounds never having an empty array <1>
             return model
             })
     }

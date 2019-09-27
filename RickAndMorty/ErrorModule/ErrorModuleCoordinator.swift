@@ -31,7 +31,10 @@ extension ErrorModuleCoordinator {
         )
         let viewController = ErrorModuleViewController(viewModel: viewModel)
         let errorNavigationController = UINavigationController(rootViewController: viewController)
-        navigationController.present(errorNavigationController, animated: animated)
+        navigationController.present(
+            errorNavigationController,
+            animated: animated
+        )
     }
 }
 

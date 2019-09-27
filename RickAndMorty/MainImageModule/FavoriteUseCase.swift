@@ -1,7 +1,6 @@
-import RxSwift
 
-/// Currently does nothing but exists for future use
-/// - Requires: `RxSwift`, `Async`
+/// Checks if a character has been favorited
+/// - Requires:
 final class FavoriteUseCase {
     
     // MARK: Dependencies

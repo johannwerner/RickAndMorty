@@ -2,7 +2,7 @@ import RxCocoa
 import RxSwift
 
 /// 
-/// - Requires: `RxSwift`, `MvRx`
+/// - Requires: `RxSwift`
 /// - Note: A view model can refer to one or more use cases.
 final class ImageGalleryModuleViewModel {
 

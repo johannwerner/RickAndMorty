@@ -8,8 +8,6 @@ final class ImageGalleryModuleInteractorApi: ImageGalleryModuleInteractor {
     // MARK: Dependencies
     
     // MARK: - Life cycle
-
-    
 }
 
 // MARK: - Internal
