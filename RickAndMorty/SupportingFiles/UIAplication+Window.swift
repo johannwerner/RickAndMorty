@@ -5,8 +5,6 @@ extension UIApplication {
     static var mainWindow: UIWindow {
         keyWindowNullable ?? UIWindow()
     }
-    
-    static weak var someWindow: UIWindow?
 }
 
 private extension UIApplication {

@@ -46,7 +46,10 @@ extension  IntroductionModuleCoordinator {
             let interactor = ImageGalleryModuleInteractorApi()
             let configurator = ImageGalleryModuleConfigurator(imageGalleryModuleInteractor: interactor)
             let coordinator = ImageGalleryModuleCoordinator(navigationController: navigationController, configurator: configurator)
-        coordinator.showImageGallery(model: model, animated: true)
+            coordinator.showImageGallery(
+                model: model,
+                animated: true
+            )
     }
     
     

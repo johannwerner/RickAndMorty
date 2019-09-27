@@ -48,7 +48,6 @@ final class ImageGalleryModuleViewController: AppViewController {
         setUpViews()
         setUpBinding()
         
-
         observeViewEffect()
     }
     
