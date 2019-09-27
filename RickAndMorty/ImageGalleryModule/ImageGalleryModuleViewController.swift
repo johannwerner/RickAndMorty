@@ -162,6 +162,5 @@ extension ImageGalleryModuleViewController: UICollectionViewDelegateFlowLayout  
             width: collectionView.frame.size.width / 3,
             height: 200
         )
-        
     }
 }
