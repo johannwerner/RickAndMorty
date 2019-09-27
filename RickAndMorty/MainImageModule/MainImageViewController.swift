@@ -132,9 +132,7 @@ private extension MainImageViewController {
 // MARK: - CollectionView
 extension MainImageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         viewModel.numberOfModels
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -150,22 +148,21 @@ extension MainImageViewController: UICollectionViewDelegate, UICollectionViewDat
             }
             mainImageCell.fill(with: model)
             return mainImageCell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.navigationItem.rightBarButtonItem?.title = viewModel.favoriteButtonText(index: indexPath.row)
+        let model = viewModel.modelForIndex(index: indexPath.row)
+        title = model?.name
     }
 }
 
 extension MainImageViewController: UICollectionViewDelegateFlowLayout  {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         CGSize(
             width: collectionView.frame.size.width - 10,
             height: collectionView.frame.size.height
         )
-        
     }
 }

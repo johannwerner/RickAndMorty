@@ -77,7 +77,7 @@ private extension MainImageViewModel {
     func favoriteChacater(model: CharacterModel) {
         let status = self.useCase.favoriteCharacter(
             model: model
-           )
+        )
         switch status {
         case .character(let model):
             self.viewEffect.accept(.character(model))
@@ -94,8 +94,8 @@ private extension MainImageViewModel {
         
         let newModels = model.results.map({ character -> CharacterModel in
             var characterCopy = character
-            let somevalue = listOfFavoriteIds.first(where: { $0 == characterCopy.id})
-            characterCopy.isFavorite = somevalue != nil
+            let idValue = listOfFavoriteIds.first(where: { $0 == characterCopy.id})
+            characterCopy.isFavorite = idValue != nil
             return characterCopy
         })
         self.model.results = newModels
