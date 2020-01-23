@@ -757,14 +757,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMorty/Preview Content\"";
-				DEVELOPMENT_TEAM = VBLGHUSBNC;
+				DEVELOPMENT_TEAM = 99AR4ADN59;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RickAndMorty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jojo.RickAndMorty;
+				PRODUCT_BUNDLE_IDENTIFIER = jojo2123.RickAndMorty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -778,7 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"RickAndMorty/Preview Content\"";
-				DEVELOPMENT_TEAM = VBLGHUSBNC;
+				DEVELOPMENT_TEAM = UUSQ3XB7HL;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RickAndMorty/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
