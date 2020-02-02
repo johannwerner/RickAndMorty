@@ -13,6 +13,7 @@ final class MainImageViewController: UIViewController {
     
 // MARK: View components
     private let collectionView: UICollectionView
+    private let showMoreButton: UIButton
     
 // MARK: Tooling
     private let disposeBag = DisposeBag()
@@ -27,6 +28,9 @@ final class MainImageViewController: UIViewController {
             frame: .zero,
             collectionViewLayout: collectionViewLayout
         )
+        
+        showMoreButton = UIButton(type: .custom)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -61,8 +65,11 @@ private extension MainImageViewController {
     /// Initializes and configures components in controller.
     func setUpViews() {
         view.addSubview(collectionView)
+        view.addSubview(showMoreButton)
+        
         setUpNavigationBar()
         setUpCollectionView()
+        setUpShowMoreButton()
     }
     
     func setUpNavigationBar() {
@@ -71,6 +78,7 @@ private extension MainImageViewController {
     }
     
     func setUpCollectionView() {
+        
         collectionView.autoPinEdge(toSuperviewEdge: .leading)
         collectionView.autoPinEdge(toSuperviewEdge: .trailing)
         collectionView.autoAlignAxis(toSuperviewAxis: .horizontal)
@@ -78,9 +86,21 @@ private extension MainImageViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.isPagingEnabled = true
-        collectionView.register(MainImageCollectionViewCell.self, forCellWithReuseIdentifier: MainImageCollectionViewCell.className)
+        collectionView.register(MainImageCollectionViewCell.self, forCellWithReuseIdentifier: MainImageCollectionViewCell.reuseId)
               
         collectionView.isHidden = true
+    }
+    
+    func setUpShowMoreButton() {
+        showMoreButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 10)
+        showMoreButton.autoAlignAxis(toSuperviewAxis: .vertical)
+        
+        showMoreButton.setTitle("Show more", for: .normal)
+        showMoreButton.setTitleColor(.systemBlue, for: .normal)
+        showMoreButton.rx.tap.subscribe({ [unowned self] _ in
+            self.viewAction.accept(.showMorePressed(self.selectedIndex))
+        })
+        .disposed(by: disposeBag)
     }
     
     /// Binds controller user events to view model.
@@ -93,12 +113,12 @@ private extension MainImageViewController {
 
 private extension MainImageViewController {
     
-    @objc func favorite() {
+    var selectedIndex: Int {
         guard let indexPath = collectionView.indexPathsForVisibleItems.first else {
             assertionFailure("no index paths visible")
-            return
+            return 0
         }
-        viewAction.accept(.favoriteIndex(indexPath.row))
+        return indexPath.row
     }
     
     func scrollToItem(index: Int) {
@@ -113,6 +133,11 @@ private extension MainImageViewController {
             animated: true
         )
     }
+    
+    @objc func favorite() {
+        viewAction.accept(.favoriteIndex(selectedIndex))
+    }
+    
 }
 
 // MARK: - Rx
@@ -144,7 +169,7 @@ extension MainImageViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainImageCollectionViewCell.className, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainImageCollectionViewCell.reuseId, for: indexPath)
             guard let model = viewModel.modelForIndex(index: indexPath.row) else {
                 assertionFailure("model is nil")
                 return cell

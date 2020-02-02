@@ -88,7 +88,7 @@ private extension ImageGalleryModuleViewController {
         collectionView.delegate = self
         collectionView.register(
             MainImageCollectionViewCell.self,
-            forCellWithReuseIdentifier: MainImageCollectionViewCell.className
+            forCellWithReuseIdentifier: MainImageCollectionViewCell.reuseId
         )
     }
     
@@ -130,7 +130,7 @@ extension ImageGalleryModuleViewController: UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainImageCollectionViewCell.className, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainImageCollectionViewCell.reuseId, for: indexPath)
             guard let model = viewModel.modelForIndex(index: indexPath.row) else {
                 assertionFailure("model is nil")
                 return cell

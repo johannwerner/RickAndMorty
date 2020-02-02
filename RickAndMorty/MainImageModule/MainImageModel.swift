@@ -11,4 +11,5 @@ enum MainImageViewEffect {
 /// View action enum for MainImage.
 enum MainImageViewAction {
     case favoriteIndex(Int)
+    case showMorePressed(Int)
 }

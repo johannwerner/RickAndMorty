@@ -14,7 +14,15 @@ struct ResponseModel: Codable {
     var results: [CharacterModel]
     var info: Info
     var selectedIndex: Int?
+    var type: ViewType? = ViewType.all
+    
+    
     struct Info: Codable {
         var next: String
+    }
+    
+    enum ViewType: String, Codable {
+        case all
+        case residents
     }
 }
