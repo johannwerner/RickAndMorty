@@ -42,4 +42,17 @@ extension MainImageCoordinator {
 
 // MARK: - Navigation OUT
 
-extension MainImageCoordinator {}
+extension MainImageCoordinator {
+    func showCharacterView(animated: Bool, model: ResponseModel) {
+        let interactor = CharacterInteractorApi()
+        let configurator = CharacterConfigurator(mainImageInteractor: interactor)
+        let coordinator = CharacterCoordinator(
+            navigationController: navigationController,
+            configurator: configurator
+        )
+        coordinator.showCharcterVier(
+            animated: animated,
+            model: model
+        )
+    }
+}
