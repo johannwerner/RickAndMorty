@@ -4,13 +4,13 @@ import PureLayout
 
 /// 
 /// - Requires: `RxSwift`
-final class ImageGalleryModuleViewController: AppViewController {
+final class LocationModuleViewController: AppViewController {
     
     // MARK: Dependencies
-    private let viewModel: ImageGalleryModuleViewModel
+    private let viewModel: LocationModuleViewModel
     
     // MARK: Rx
-    private let viewAction = PublishRelay<ImageGalleryModuleViewAction>()
+    private let viewAction = PublishRelay<LocationModuleViewAction>()
     
     // MARK: View components
     private let primaryButton = UIButton()
@@ -21,7 +21,7 @@ final class ImageGalleryModuleViewController: AppViewController {
 
     // MARK: - Life cycle
     
-    init(viewModel: ImageGalleryModuleViewModel) {
+    init(viewModel: LocationModuleViewModel) {
         self.viewModel = viewModel
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.minimumInteritemSpacing = 0
@@ -50,36 +50,22 @@ final class ImageGalleryModuleViewController: AppViewController {
         
         observeViewEffect()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if viewModel.isShowingFavorites == true {
-            self.viewModel.showFavorites()
-        }
-    }
 }
 
 // MARK: - Setup
 
-private extension ImageGalleryModuleViewController {
+private extension LocationModuleViewController {
 
     /// Initializes and configures components in controller.
     func setUpViews() {
-        view.backgroundColor = ColorTheme.backkgroundColor
+        view.backgroundColor = .systemBackground
+        title = viewModel.title
         
         setUpCollectionView()
         setUpNavBar()
     }
     
-    func setUpNavBar() {
-        let title = viewModel.favoritesButtonText
-        let favoriteButton = UIBarButtonItem(title: title, style: .done, target: self, action: #selector(showFavorites))
-        self.navigationItem.rightBarButtonItem  = favoriteButton
-    }
-    
-    @objc func showFavorites() {
-        viewAction.accept(.showFavorites)
-    }
+    func setUpNavBar() {}
     
     func setUpCollectionView() {
         view.addSubview(collectionView)
@@ -100,7 +86,7 @@ private extension ImageGalleryModuleViewController {
 
 // MARK: - Rx
 
-private extension ImageGalleryModuleViewController {
+private extension LocationModuleViewController {
 
     /// Starts observing view effects to react accordingly.
     func observeViewEffect() {
@@ -110,7 +96,6 @@ private extension ImageGalleryModuleViewController {
                 switch effect {
                 case .success:
                     self.collectionView.reloadData()
-                    self.navigationItem.rightBarButtonItem?.title = self.viewModel.favoritesButtonText
                     self.activityView.hideView()
                 case .loading:
                     self.activityView.showView()
@@ -123,7 +108,7 @@ private extension ImageGalleryModuleViewController {
 }
 
 // MARK: - CollectionView
-extension ImageGalleryModuleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension LocationModuleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.numberOfModels
     }
@@ -142,19 +127,9 @@ extension ImageGalleryModuleViewController: UICollectionViewDelegate, UICollecti
             imageGalleryCell.fill(with: model)
             return imageGalleryCell
         }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewAction.accept(.selectedIndex(indexPath.row))
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.numberOfModels - 1 {
-            viewAction.accept(.loadMore)
-        }
-    }
 }
 
-extension ImageGalleryModuleViewController: UICollectionViewDelegateFlowLayout  {
+extension LocationModuleViewController: UICollectionViewDelegateFlowLayout  {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

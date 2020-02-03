@@ -11,7 +11,7 @@ final class MainImageViewModel {
     
     // MARK: Dependencies
     private let coordinator: MainImageCoordinator
-    private let useCase: FavoriteUseCase
+    private let useCase: CharacterFavoriteUseCase
     
     // MARK: Tooling
     private let disposeBag = DisposeBag()
@@ -26,7 +26,7 @@ final class MainImageViewModel {
          model: ResponseModel
         ) {
         self.coordinator = coordinator
-        self.useCase = FavoriteUseCase(interactor: configurator.mainImageInteractor)
+        self.useCase = CharacterFavoriteUseCase(interactor: configurator.mainImageInteractor)
         self.model = model
         observeViewEffect()
         addFavoritesToModel()
@@ -50,8 +50,7 @@ extension MainImageViewModel {
     }
     
     func favoriteButtonText(index: Int) -> String {
-        let model = modelForIndex(index: index)
-        return model?.isFavorite == true ? "Unfavorite": "Favorite"
+        modelForIndex(index: index)?.isFavorite == true ?  "Unfavorite": "Favorite"
     }
     
     func bind(to viewAction: PublishRelay<MainImageViewAction>) {
@@ -65,6 +64,9 @@ extension MainImageViewModel {
                         return
                     }
                     self.favoriteChacater(model: model)
+                case .showMorePressed(let index):
+                    self.model.selectedIndex = index
+                    self.coordinator.showCharacterView(animated: true, model: self.model)
                 }
             })
             .disposed(by: disposeBag)

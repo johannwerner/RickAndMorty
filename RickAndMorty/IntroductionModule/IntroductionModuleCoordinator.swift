@@ -51,8 +51,6 @@ extension  IntroductionModuleCoordinator {
                 animated: true
             )
     }
-    
-    
 }
 
 // MARK: - Navigation to Error View

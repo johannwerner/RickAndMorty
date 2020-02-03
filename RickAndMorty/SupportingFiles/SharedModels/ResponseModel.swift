@@ -14,6 +14,8 @@ struct ResponseModel: Codable {
     var results: [CharacterModel]
     var info: Info
     var selectedIndex: Int?
+    
+    
     struct Info: Codable {
         var next: String
     }

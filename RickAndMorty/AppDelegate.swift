@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         startApp()
-        return true
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
@@ -43,15 +42,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 private extension AppDelegate {
-  func startApp() {
+  func startApp() -> Bool {
         showFirstView()
     }
           
-    func showFirstView() {
+    func showFirstView() -> Bool {
          let startNavigationController = UINavigationController()
          startNavigationController.isNavigationBarHidden = true
          makeNavigationControllerMain(navigationController: startNavigationController)
          showIntroduction(navigationController: startNavigationController)
+         return true
     }
           
     func makeNavigationControllerMain(navigationController: UINavigationController) {
