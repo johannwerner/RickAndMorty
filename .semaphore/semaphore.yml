@@ -12,4 +12,4 @@ blocks:
           commands:
             - checkout
             - ls
-            - xcodebuild
+            - xcodebuild -allowProvisioningUpdates
