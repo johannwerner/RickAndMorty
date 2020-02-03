@@ -7,5 +7,5 @@
 //
 
 func unimplemented() -> Never {
-    fatalError("unimplemented")
+    fatalError("not implemented")
 }
