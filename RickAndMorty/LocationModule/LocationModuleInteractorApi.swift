@@ -1,12 +1,19 @@
 import RxSwift
 import RxAlamofire
 
-/// Currently does nothing but exists for future use
+/// 
 /// - Requires: `RxSwift`, `Async`
-final class CharacterInteractorApi: CharacterInteractor {
-    // MARK: - Internal
+final class LocationModuleInteractorApi: LocationModuleInteractor {
     
-    func getLocation(url: String) -> Observable<Async<Any>> {
+    
+    // MARK: Dependencies
+    
+    // MARK: - Life cycle
+}
+
+// MARK: - Internal
+extension LocationModuleInteractorApi {
+    func getCharacters(url: String) -> Observable<Async<Any>> {
             RxAlamofire
                 .requestJSON(
                     .get,
@@ -18,3 +25,6 @@ final class CharacterInteractorApi: CharacterInteractor {
                 }.async()
         }
 }
+
+// MARK: - Private
+private extension LocationModuleInteractorApi {}

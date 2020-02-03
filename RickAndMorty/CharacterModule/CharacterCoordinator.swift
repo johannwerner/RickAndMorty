@@ -40,13 +40,9 @@ extension CharacterCoordinator {
 // MARK: - Navigation OUT
 
 extension CharacterCoordinator {
-        func showCharacterList(model: ResponseModel, animated: Bool) {
-                let interactor = ImageGalleryModuleInteractorApi()
-                let configurator = ImageGalleryModuleConfigurator(imageGalleryModuleInteractor: interactor)
-                let coordinator = ImageGalleryModuleCoordinator(navigationController: navigationController, configurator: configurator)
-                coordinator.showImageGallery(
-                    model: model,
-                    animated: true
-                )
+        func showLocation(model: LocationModel, animated: Bool) {
+            let configurator = LocationModuleConfigurator(locationModuleInteractor: LocationModuleInteractorApi())
+            let coordinator = LocationModuleCoordinator(navigationController: navigationController, configurator: configurator)
+            coordinator.showLocation(model: model, animated: true)
         }
 }

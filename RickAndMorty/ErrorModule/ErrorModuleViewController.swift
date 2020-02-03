@@ -3,7 +3,7 @@ import RxCocoa
 
 /// To show users an error view
 /// - Requires: `RxSwift`
-final class ErrorModuleViewController: UIViewController {
+final class ErrorModuleViewController: AppViewController {
     
     // MARK: Dependencies
     private let viewModel: ErrorModuleViewModel
@@ -32,7 +32,7 @@ final class ErrorModuleViewController: UIViewController {
 
     override func loadView() {
         view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = ColorTheme.backkgroundColor
     }
     
     override func viewDidLoad() {

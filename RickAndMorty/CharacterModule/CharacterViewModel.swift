@@ -19,6 +19,10 @@ final class CharacterViewModel {
     // MARK: - Properties
     private var model: ResponseModel
     private var dataSourceArray: [CharacterEnum] = []
+    
+    private var originIsUnknown: Bool {
+        character.origin.url.isEmpty == true
+    }
 
     // MARK: - Life cycle
     
@@ -47,15 +51,11 @@ extension CharacterViewModel {
     }
     
     var character: CharacterModel {
-        modelForIndex(index: selectedIndex)
+        model.results[selectedIndex]
     }
     
     func typeForIndex(index: Int) -> CharacterEnum {
         dataSourceArray[index]
-    }
-    
-    func modelForIndex(index: Int) -> CharacterModel {
-        model.results[index]
     }
 
     func bind(to viewAction: PublishRelay<CharacterViewAction>) {
@@ -70,16 +70,18 @@ extension CharacterViewModel {
     }
     
     func showOrigin() {
-        useCase.getCharacters(url: character.origin.url).subscribe(onNext: { [unowned self] status in
+        guard originIsUnknown == false else {
+            return
+        }
+        useCase.getLocation(url: character.origin.url).subscribe(onNext: { [unowned self] status in
             switch status {
             case .loading:
                 self.viewEffect.accept(.loading)
             case .error:
                 self.viewEffect.accept(.error)
-            case .success(var response):
+            case .success(let response):
                 self.viewEffect.accept(.success)
-                response.type = .residents
-                self.coordinator.showCharacterList(
+                self.coordinator.showLocation(
                     model: response,
                     animated: true
                 )
@@ -93,8 +95,12 @@ extension CharacterViewModel {
 private extension CharacterViewModel {
     func setUpDataSourceArray() {
         dataSourceArray.append(CharacterEnum.mainImage(character.imageUrlToShow))
-        let attributedText = AttributedStringManager.convertStringToAttributedString("<u>Origin: \(character.origin.name)</u>")
-        dataSourceArray.append(CharacterEnum.origin(attributedText))
+        if originIsUnknown == true {
+            dataSourceArray.append(CharacterEnum.text(character.origin.name))
+        } else {
+            let attributedText = AttributedStringManager.convertStringToAttributedString("<u>Origin: \(character.origin.name)</u>")
+            dataSourceArray.append(CharacterEnum.origin(attributedText))
+        }
         dataSourceArray.append(CharacterEnum.text("Species \(character.species)"))
         dataSourceArray.append(CharacterEnum.text("Gender \(character.gender)"))
     }

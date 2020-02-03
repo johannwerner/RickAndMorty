@@ -100,10 +100,7 @@ private extension CharacterViewController {
         setUpTableView()
     }
     
-    func setUpNavigationBar() {
-        let favoriteButton = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(favorite))
-        navigationItem.rightBarButtonItem  = favoriteButton
-    }
+    func setUpNavigationBar() {}
     
     func setUpTableView() {
         tableView.backgroundColor = .black
@@ -122,12 +119,7 @@ private extension CharacterViewController {
 
 // MARK: - Private
 
-private extension CharacterViewController {
-    
-    @objc func favorite() {
-
-    }
-}
+private extension CharacterViewController {}
 
 // MARK: - Rx
 

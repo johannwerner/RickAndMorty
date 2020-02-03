@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class UserDefaultsManager {
+final class UserDefaultsManager {
     // MARK: - Properties
     @UserDefaultsProperty(userDefaultsKey: UserDefaultConstants.favoriteIds, initalValue: [Int]())
     var listOfFavoriteIds

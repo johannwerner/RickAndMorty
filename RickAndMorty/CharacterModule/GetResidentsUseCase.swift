@@ -24,16 +24,17 @@ final class GetResidentsUseCase {
 // MARK: - Public functions
 
 extension GetResidentsUseCase {
-    func getCharacters(url: String) -> Observable<CharacterStatus> {
-        interactor.getCharacters(url: url)
+    func getLocation(url: String) -> Observable<CharacterStatus> {
+        interactor.getLocation(url: url)
             .map { (result: Async<Any>) -> CharacterStatus in
                 switch result {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    guard let responseModel = ResponseModel.parse(from: data) else {
+                    guard let responseModel = LocationModel.parse(from: data) else {
                         return .error
                     }
+                    
                     return .success(responseModel)
                 case .error:
                     return .error

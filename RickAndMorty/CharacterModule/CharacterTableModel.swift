@@ -2,7 +2,7 @@
 enum CharacterStatus {
     case loading
     case error
-    case success(ResponseModel)
+    case success(LocationModel)
 }
 
 /// View effect enum for Character.
