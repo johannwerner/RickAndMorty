@@ -11,7 +11,5 @@ blocks:
         - name: Checkout and build
           commands:
             - checkout
-            - sudo gem install cocoapods
             - ls
-            - pod install
             - xcodebuild
