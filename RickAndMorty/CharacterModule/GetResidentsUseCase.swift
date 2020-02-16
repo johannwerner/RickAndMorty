@@ -33,8 +33,7 @@ extension GetResidentsUseCase {
                 case .success(let data):
                     guard let responseModel = LocationModel.parse(from: data) else {
                         return .error
-                    }
-                    
+                    }   
                     return .success(responseModel)
                 case .error:
                     return .error

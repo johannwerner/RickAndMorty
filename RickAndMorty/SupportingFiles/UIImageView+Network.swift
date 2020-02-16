@@ -1,6 +1,7 @@
 import Foundation
 import Kingfisher
 
+// MARK: Load Image From String
 extension UIImageView {
     typealias LoadImageCompletion = (UIImage?, Error?) -> Void
     
@@ -27,7 +28,8 @@ extension UIImageView {
     }
 }
 
-private extension UIImageView {
+// MARK: Load Image From Url
+extension UIImageView {
     /// Loads image from url
     ///
     /// - Parameters:

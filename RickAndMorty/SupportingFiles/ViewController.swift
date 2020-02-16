@@ -22,7 +22,7 @@ private extension UIViewController {
         view.window?.rootViewController = newNavigationController
         newNavigationController.pushViewController(
             self,
-            animated: false
+            animated: true
         )
         return newNavigationController
     }

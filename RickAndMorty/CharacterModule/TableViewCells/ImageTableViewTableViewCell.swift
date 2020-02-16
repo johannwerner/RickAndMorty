@@ -30,8 +30,8 @@ final class ImageTableViewCell: UITableViewCell {
 
 // MARK: - Public
 extension ImageTableViewCell {
-    func fill(with url: String) {
-        mainImageView.setRemoteImage(with: url)
+    func fill(with url: URL) {
+        mainImageView.setRemoteImage(url: url)
     }
 }
 

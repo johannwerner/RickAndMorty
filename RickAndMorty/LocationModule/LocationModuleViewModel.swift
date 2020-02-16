@@ -8,8 +8,6 @@ final class LocationModuleViewModel {
 
     // MARK: - Properties
     private var locationModel: LocationModel
-
-
     private var allCharacters: [CharacterModel]  = []
 
     // MARK: - View Effect
@@ -46,11 +44,11 @@ extension LocationModuleViewModel {
     }
     
     var numberOfModels: Int {
-        results.count
+        allCharacters.count
     }
     
     func modelForIndex(index: Int) -> CharacterModel? {
-        results[safe: index]
+        allCharacters[safe: index]
     }
 
     func bind(to viewAction: PublishRelay<LocationModuleViewAction>) {
@@ -65,14 +63,13 @@ extension LocationModuleViewModel {
 // MARK: - Private
 
 private extension LocationModuleViewModel {
-    var results: [CharacterModel] {
-        allCharacters
-    }
     
     func getCharacaters() {
+        guard locationModel.residents.isEmpty == false else {
+            return
+        }
         useCase.getCharacters(locationModel: locationModel).subscribe(onNext: { [unowned self] status in
         switch status {
-
         case .loading:
             self.viewEffect.accept(.loading)
         case .error:

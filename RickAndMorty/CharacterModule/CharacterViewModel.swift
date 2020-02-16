@@ -20,8 +20,14 @@ final class CharacterViewModel {
     private var model: ResponseModel
     private var dataSourceArray: [CharacterEnum] = []
     
-    private var originIsUnknown: Bool {
-        character.origin.url.isEmpty == true
+    private func originIsUnknown(location: CharacterModel.Location) -> Bool {
+        location.url.isEmpty == true
+    }
+    
+    enum OriginStatus {
+        case unkown
+        case noResidents
+        case residents
     }
 
     // MARK: - Life cycle
@@ -69,11 +75,11 @@ extension CharacterViewModel {
             .disposed(by: disposeBag)
     }
     
-    func showOrigin() {
-        guard originIsUnknown == false else {
+    func showLocation(location: CharacterModel.Location) {
+        guard originIsUnknown(location: location) == false else {
             return
         }
-        useCase.getLocation(url: character.origin.url).subscribe(onNext: { [unowned self] status in
+        useCase.getLocation(url: location.url).subscribe(onNext: { [unowned self] status in
             switch status {
             case .loading:
                 self.viewEffect.accept(.loading)
@@ -95,24 +101,16 @@ extension CharacterViewModel {
 private extension CharacterViewModel {
     func setUpDataSourceArray() {
         dataSourceArray.append(CharacterEnum.mainImage(character.imageUrlToShow))
-        if originIsUnknown == true {
-            dataSourceArray.append(CharacterEnum.text(character.origin.name))
+        if originIsUnknown(location: character.origin) == true {
+            dataSourceArray.append(CharacterEnum.text("Origin: Uknown"))
         } else {
-            let attributedText = AttributedStringManager.convertStringToAttributedString("<u>Origin: \(character.origin.name)</u>")
-            dataSourceArray.append(CharacterEnum.origin(attributedText))
+            dataSourceArray.append(CharacterEnum.location(location: character.origin, name: "Origin"))
         }
         dataSourceArray.append(CharacterEnum.text("Species \(character.species)"))
         dataSourceArray.append(CharacterEnum.text("Gender \(character.gender)"))
-    }
-    
-    func favoriteChacater(model: CharacterModel) {
-//        let status = self.useCase.favoriteCharacter(
-//            model: model
-//        )
-//        switch status {
-//        case .character(let model):
-//            self.viewEffect.accept(.character(model))
-//        }
+        dataSourceArray.append(CharacterEnum.text("Status \(character.status)"))
+        
+        dataSourceArray.append(CharacterEnum.location(location: character.location, name: "Last Known Location"))
     }
 }
 
@@ -137,9 +135,10 @@ private extension CharacterViewModel {
 
 extension CharacterViewModel {
     enum CharacterEnum {
-        case mainImage(String)
-        case origin(NSAttributedString)
+        case mainImage(URL)
+        case location(location: CharacterModel.Location, name: String)
         case text(String)
+//        case images([URL])
     }
  
 }

@@ -36,8 +36,9 @@ extension TextTableViewCell {
         textLabel?.text = text
     }
     
-    func fill(with text: NSAttributedString) {
-        textLabel?.attributedText = text
+    func fill(with location: (location: CharacterModel.Location, name: String)) {
+        let attributedText = AttributedStringManager.convertStringToAttributedString("<u>\(location.name): \(location.location.name)</u>")
+        textLabel?.attributedText = attributedText
     }
 }
 

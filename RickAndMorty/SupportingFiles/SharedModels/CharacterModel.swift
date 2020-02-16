@@ -9,14 +9,17 @@
 import Foundation
 
 struct CharacterModel: Codable, ImageCollectionProtocol {
-    var image: String
+    var image: URL
     var id: Int
     var isFavorite: Bool
     var name: String
     var species: String
-    var origin: Origin
+    var origin: Location
     var gender: String
-    var imageUrlToShow: String {
+    var status: String
+    var location: Location
+    
+    var imageUrlToShow: URL {
         image
     }
     
@@ -27,17 +30,21 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
         case species
         case origin
         case gender
+        case status
+        case location
     }
     
     // MARK: - Life Cycle
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let image = try container.decode(String.self, forKey: .image)
+        let image = try container.decode(URL.self, forKey: .image)
         let id = try container.decode(Int.self, forKey: .id)
         let name = try container.decode(String.self, forKey: .name)
         let species = try container.decode(String.self, forKey: .species)
-        let origin = try container.decode(Origin.self, forKey: .origin)
+        let origin = try container.decode(Location.self, forKey: .origin)
         let gender = try container.decode(String.self, forKey: .gender)
+        let status = try container.decode(String.self, forKey: .status)
+        let lastKnownLocation = try container.decode(Location.self, forKey: .location)
         
         self.image = image
         self.id = id
@@ -46,9 +53,11 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
         self.species = species
         self.origin = origin
         self.gender = gender
+        self.status = status
+        self.location = lastKnownLocation
     }
     
-    struct Origin: Codable {
+    struct Location: Codable {
         var name: String
         var url: String
     }

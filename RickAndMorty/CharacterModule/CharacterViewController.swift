@@ -51,30 +51,30 @@ extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
         viewModel.tableViewCount
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let type = viewModel.typeForIndex(index: indexPath.row)
-        switch type {
-        case .mainImage(let url):
-            let cell = tableView.dequeueReusableCell(ofType: ImageTableViewCell.self, at: indexPath)!
-            cell.fill(with: url)
-            return cell
-        case .origin(let text):
-            let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
-            cell.fill(with: text)
-            return cell
-        case .text(let text):
-            let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
-             cell.fill(with: text)
-             return cell
+ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let type = viewModel.typeForIndex(index: indexPath.row)
+      switch type {
+      case .mainImage(let url):
+          let cell = tableView.dequeueReusableCell(ofType: ImageTableViewCell.self, at: indexPath)!
+          cell.fill(with: url)
+          return cell
+      case .location(let text):
+          let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
+          cell.fill(with: text)
+          return cell
+      case .text(let text):
+          let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
+          cell.fill(with: text)
+          return cell
         }
-    }
+  }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let type = viewModel.typeForIndex(index: indexPath.row)
         switch type {
         case .mainImage:
             return 400
-        case .origin, .text:
+        case .location, .text:
             return 50
         }
     }
@@ -83,8 +83,8 @@ extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
         let type = viewModel.typeForIndex(index: indexPath.row)
           switch type {
             case .mainImage, .text: break
-            case .origin:
-                viewModel.showOrigin()
+            case .location(let location):
+                viewModel.showLocation(location: location.0)
           }
     }
 }
