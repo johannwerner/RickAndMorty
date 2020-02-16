@@ -18,6 +18,7 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
     var gender: String
     var status: String
     var location: Location
+    var episode: [URL]
     
     var imageUrlToShow: URL {
         image
@@ -32,6 +33,7 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
         case gender
         case status
         case location
+        case episode
     }
     
     // MARK: - Life Cycle
@@ -45,6 +47,7 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
         let gender = try container.decode(String.self, forKey: .gender)
         let status = try container.decode(String.self, forKey: .status)
         let lastKnownLocation = try container.decode(Location.self, forKey: .location)
+        let episode = try container.decode([URL].self, forKey: .episode)
         
         self.image = image
         self.id = id
@@ -55,6 +58,8 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
         self.gender = gender
         self.status = status
         self.location = lastKnownLocation
+        self.episode = episode
+        
     }
     
     struct Location: Codable {

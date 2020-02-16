@@ -66,15 +66,23 @@ extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
           let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
           cell.fill(with: text)
           return cell
-        }
+      case .images(let images):
+          let cell = tableView.dequeueReusableCell(ofType: ImagesTableViewCell.self, at: indexPath)!
+          cell.fill(with: images)
+          return cell
+      case .episode(let url):
+        let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
+        cell.fill(with: url)
+        return cell
+    }
   }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let type = viewModel.typeForIndex(index: indexPath.row)
         switch type {
-        case .mainImage:
+        case .mainImage, .images:
             return 400
-        case .location, .text:
+        case .location, .text, .episode:
             return 50
         }
     }
@@ -82,10 +90,10 @@ extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = viewModel.typeForIndex(index: indexPath.row)
           switch type {
-            case .mainImage, .text: break
+          case .mainImage, .text, .images, .episode: break
             case .location(let location):
                 viewModel.showLocation(location: location.0)
-          }
+        }
     }
 }
 
@@ -103,10 +111,11 @@ private extension CharacterViewController {
     func setUpNavigationBar() {}
     
     func setUpTableView() {
-        tableView.backgroundColor = .black
+        tableView.backgroundColor = .secondarySystemBackground
         tableView.autoPinEdgesToSuperviewEdges()
         tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: ImageTableViewCell.reuseId)
         tableView.register(TextTableViewCell.self, forCellReuseIdentifier: TextTableViewCell.reuseId)
+        tableView.register(ImagesTableViewCell.self, forCellReuseIdentifier: ImagesTableViewCell.reuseId)
         tableView.dataSource = self
         tableView.delegate = self
     }

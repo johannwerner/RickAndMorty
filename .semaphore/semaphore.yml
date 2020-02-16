@@ -5,11 +5,34 @@ agent:
     type: a1-standard-4
     os_image: macos-mojave-xcode11
 blocks:
-  - name: Build
-    task:
-      jobs:
-        - name: Checkout and build
-          commands:
-            - checkout
-            - ls
-            - xcodebuild -allowProvisioningUpdates
+  - name: Build app
+  task:
+    env_vars:
+      - name: LANG
+        value: en_US.UTF-8
+    secrets:
+      # Make the SSH key for the certificate repository and the MATCH_PASSWORD
+      # environment variable available.
+      # See https://docs.semaphoreci.com/article/109-using-private-dependencies
+      - name: match-secrets
+    prologue:
+      commands:
+        # Add the key for the match certificate repository to ssh
+        # See https://docs.semaphoreci.com/article/109-using-private-dependencies
+        - chmod 0600 ~/.ssh/*
+        - ssh-add ~/.ssh/match-repository-private-key
+
+        # Continue with checkout as normal
+        - checkout
+        - cache restore
+        - bundle install --path vendor/bundle
+        - cache store
+    jobs:
+      - name: Build
+        commands:
+          - bundle exec xcversion select 11.2.1
+          - bundle exec fastlane build
+
+          # Upload the IPA file as a job artifact.
+          # See https://docs.semaphoreci.com/article/155-artifacts
+          - artifact push job build/Rick&Morty.ipa

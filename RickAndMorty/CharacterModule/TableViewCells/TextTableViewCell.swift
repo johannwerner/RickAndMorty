@@ -33,20 +33,30 @@ final class TextTableViewCell: UITableViewCell {
 // MARK: - Public
 extension TextTableViewCell {
     func fill(with text: String) {
-        textLabel?.text = text
+        fill(attributedText: text)
     }
     
     func fill(with location: (location: CharacterModel.Location, name: String)) {
-        let attributedText = AttributedStringManager.convertStringToAttributedString("<u>\(location.name): \(location.location.name)</u>")
-        textLabel?.attributedText = attributedText
+        fill(attributedText: "<u>\(location.name): \(location.location.name)</u>")
+    }
+    
+    
+    func fill(with url: URL) {
+        let episodeNumber = url.absoluteString.split(separator: "/").last ?? ""
+        fill(attributedText: "episode \(episodeNumber)")
     }
 }
 
 // MARK: - Private
 private extension TextTableViewCell {
     func setUpViews() {
-        backgroundColor = .black
+        backgroundColor = .secondarySystemBackground
         textLabel?.textColor = .systemBlue
         textLabel?.numberOfLines = 2
     }
-}
+    
+    func fill(attributedText: String) {
+        let attributedText = AttributedStringManager.convertStringToAttributedString(attributedText)
+        textLabel?.attributedText = attributedText
+    }
+ }

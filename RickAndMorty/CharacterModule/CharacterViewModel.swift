@@ -111,6 +111,9 @@ private extension CharacterViewModel {
         dataSourceArray.append(CharacterEnum.text("Status \(character.status)"))
         
         dataSourceArray.append(CharacterEnum.location(location: character.location, name: "Last Known Location"))
+        character.episode.forEach { url in
+            dataSourceArray.append(CharacterEnum.episode(url))
+        }
     }
 }
 
@@ -138,7 +141,9 @@ extension CharacterViewModel {
         case mainImage(URL)
         case location(location: CharacterModel.Location, name: String)
         case text(String)
-//        case images([URL])
+        case images([URL])
+        case episode(URL)
     }
- 
+
 }
+
