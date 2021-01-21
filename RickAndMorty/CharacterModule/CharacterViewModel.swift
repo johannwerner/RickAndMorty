@@ -38,6 +38,7 @@ final class CharacterViewModel {
         ) {
         self.coordinator = coordinator
         self.useCase = GetResidentsUseCase(interactor: configurator.mainImageInteractor)
+
         self.model = model
         observeViewEffect()
         setUpDataSourceArray()
@@ -76,10 +77,10 @@ extension CharacterViewModel {
     }
     
     func showLocation(location: CharacterModel.Location) {
-        guard originIsUnknown(location: location) == false else {
+        guard let url = URL(string: location.url) else {
             return
         }
-        useCase.getLocation(url: location.url).subscribe(onNext: { [unowned self] status in
+        useCase.getLocation(url: url).subscribe(onNext: { [unowned self] status in
             switch status {
             case .loading:
                 self.viewEffect.accept(.loading)
@@ -93,6 +94,10 @@ extension CharacterViewModel {
                 )
             }
             }).disposed(by: disposeBag)
+    }
+    
+    func showEpisode(url: URL) {
+        coordinator.showEpisode(url: url)
     }
 }
 

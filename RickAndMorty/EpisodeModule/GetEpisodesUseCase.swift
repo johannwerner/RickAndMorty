@@ -9,29 +9,29 @@
 import RxSwift
 /// An introduction to the app
 /// - Requires:
-final class GetResidentsUseCase {
+final class EpisodeUseCase {
     
     // MARK: Dependencies
-    private let interactor:  CharacterInteractor
+    private let interactor:  EpisodeInteractor
     
     // MARK: - Life cycle
     
-    init(interactor:  CharacterInteractor) {
+    init(interactor: EpisodeInteractor) {
         self.interactor = interactor
     }
 }
 
 // MARK: - Public functions
 
-extension GetResidentsUseCase {
-    func getLocation(url: URL) -> Observable<CharacterStatus> {
+extension EpisodeUseCase {
+    func getEpisode(url: URL) -> Observable<EpisodeStatus> {
         interactor.getModel(url: url)
-            .map { (result: Async<Any>) -> CharacterStatus in
+            .map { (result: Async<Any>) -> EpisodeStatus in
                 switch result {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    guard let responseModel = LocationModel.parse(from: data) else {
+                    guard let responseModel = EpisodeModel.parse(from: data) else {
                         return .error
                     }   
                     return .success(responseModel)
@@ -43,9 +43,9 @@ extension GetResidentsUseCase {
 }
 
 private extension Array where Iterator.Element == Dictionary<String, Any> {
-    func convert() -> [CharacterModel]? {
-        compactMap({ dict -> CharacterModel? in
-            guard let model = CharacterModel.parse(from: dict) else {
+    func convert() -> [EpisodeModel]? {
+        compactMap({ dict -> EpisodeModel? in
+            guard let model = EpisodeModel.parse(from: dict) else {
                 assertionFailure("parse failed")
                 return nil
             }

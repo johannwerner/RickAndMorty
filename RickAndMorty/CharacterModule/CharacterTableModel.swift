@@ -16,5 +16,3 @@ enum CharacterViewEffect {
 enum CharacterViewAction {
     case favoriteIndex(Int)
 }
-
-

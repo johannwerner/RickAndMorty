@@ -52,11 +52,11 @@ extension LocationModuleViewModel {
     }
 
     func bind(to viewAction: PublishRelay<LocationModuleViewAction>) {
-//        viewAction
-//            .asObservable()
-//            .subscribe(onNext: { [unowned self] viewAction in
-//            })
-//            .disposed(by: disposeBag)
+        viewAction
+            .asObservable()
+            .subscribe(onNext: { viewAction in
+            })
+            .disposed(by: disposeBag)
     }
 }
 

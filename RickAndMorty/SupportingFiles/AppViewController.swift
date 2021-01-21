@@ -77,10 +77,9 @@ private extension ActivityViewComponent {
         autoSetDimension(.height, toSize: UIScreen.main.bounds.size.height)
         autoSetDimension(.width, toSize: UIScreen.main.bounds.size.width)
         autoCenterInSuperview()
+        
         backgroundColor = ActivityViewStyle.transparentViewBackgroundDarkColor
         
-        
-
         activityIndicator.startAnimating()
     }
     
