@@ -17,7 +17,7 @@ final class CharacterViewModel {
     private let disposeBag = DisposeBag()
     
     // MARK: - Properties
-    private var model: ResponseModel
+    private var model: CharacterResponse
     private var dataSourceArray: [CharacterEnum] = []
     
     private func originIsUnknown(location: CharacterModel.Location) -> Bool {
@@ -34,7 +34,7 @@ final class CharacterViewModel {
     
     init(coordinator: CharacterCoordinator,
          configurator: CharacterConfigurator,
-         model: ResponseModel
+         model: CharacterResponse
         ) {
         self.coordinator = coordinator
         self.useCase = GetResidentsUseCase(interactor: configurator.mainImageInteractor)

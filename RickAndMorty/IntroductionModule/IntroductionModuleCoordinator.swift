@@ -42,7 +42,7 @@ extension  IntroductionModuleCoordinator {
 
 extension  IntroductionModuleCoordinator {
 
-    func showCharacterList(model: ResponseModel, animated: Bool) {
+    func showCharacterList(model: CharacterResponse, animated: Bool) {
             let interactor = ImageGalleryModuleInteractorApi()
             let configurator = ImageGalleryModuleConfigurator(imageGalleryModuleInteractor: interactor)
             let coordinator = ImageGalleryModuleCoordinator(navigationController: navigationController, configurator: configurator)

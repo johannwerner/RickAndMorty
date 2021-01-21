@@ -23,7 +23,7 @@ final class CharacterCoordinator {
 
 extension CharacterCoordinator {
     
-    func showCharcterVier(animated: Bool, model: ResponseModel) {
+    func showCharcterVier(animated: Bool, model: CharacterResponse) {
            let viewModel = CharacterViewModel(
                coordinator: self,
                configurator: configurator,

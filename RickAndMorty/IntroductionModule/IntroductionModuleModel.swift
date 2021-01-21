@@ -2,7 +2,7 @@
 enum IntroductionModuleStatus {
     case loading
     case error
-    case success(ResponseModel)
+    case success(CharacterResponse)
 }
 
 /// View effect enum for  IntroductionModule.

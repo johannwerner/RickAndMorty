@@ -17,13 +17,13 @@ final class MainImageViewModel {
     private let disposeBag = DisposeBag()
     
     // MARK: - Properties
-    private var model: ResponseModel
+    private var model: CharacterResponse
 
     // MARK: - Life cycle
     
     init(coordinator: MainImageCoordinator,
          configurator: MainImageConfigurator,
-         model: ResponseModel
+         model: CharacterResponse
         ) {
         self.coordinator = coordinator
         self.useCase = CharacterFavoriteUseCase(interactor: configurator.mainImageInteractor)

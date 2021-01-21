@@ -24,7 +24,7 @@ final class MainImageCoordinator {
 extension MainImageCoordinator {
     
     func showLargeImage(
-        model: ResponseModel,
+        model: CharacterResponse,
         animated: Bool
     ) {
        let viewModel = MainImageViewModel(
@@ -43,7 +43,7 @@ extension MainImageCoordinator {
 // MARK: - Navigation OUT
 
 extension MainImageCoordinator {
-    func showCharacterView(animated: Bool, model: ResponseModel) {
+    func showCharacterView(animated: Bool, model: CharacterResponse) {
         let interactor = CharacterInteractorApi()
         let configurator = CharacterConfigurator(mainImageInteractor: interactor)
         let coordinator = CharacterCoordinator(

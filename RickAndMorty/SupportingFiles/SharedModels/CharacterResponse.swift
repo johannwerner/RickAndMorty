@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ResponseModel: Codable {
+struct CharacterResponse: Codable {
     
     // MARK: - Properties
     var results: [CharacterModel]
