@@ -8,12 +8,6 @@ import UIKit
 // extension UIView: Reusable {}
 // It's preferred that each UIView comforms explicitly to Reusable
 
-// Map
-extension MKAnnotationView: Reusable {}
-
-// UIStoryboard
-extension UIStoryboard: Reusable {}
-
 // View Controller
 extension UIViewController: Reusable {}
 
