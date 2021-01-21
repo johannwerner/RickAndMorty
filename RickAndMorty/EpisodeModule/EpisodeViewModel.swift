@@ -68,9 +68,6 @@ extension EpisodeViewModel {
 // MARK: - Private functions
 
 private extension EpisodeViewModel {
-    func setUpDataSourceArray() {
-
-    }
     
     func getEpisode() {
         useCase.getEpisode(url: url).subscribe(onNext: { [unowned self]status in
