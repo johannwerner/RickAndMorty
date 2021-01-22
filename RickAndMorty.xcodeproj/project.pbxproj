@@ -176,7 +176,7 @@
 		9380E5C8233D250A00E2B383 /* FavoriteUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteUseCase.swift; sourceTree = "<group>"; };
 		9380E5D1233D2B3800E2B383 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		9380E5D3233D42F400E2B383 /* AttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedStringTests.swift; sourceTree = "<group>"; };
-		9380E5D5233D50EC00E2B383 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
+		9380E5D5233D50EC00E2B383 /* comments.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = comments.md; sourceTree = "<group>"; };
 		9380E5D8233D513C00E2B383 /* ErrorModuleConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleConfigurator.swift; sourceTree = "<group>"; };
 		9380E5D9233D513C00E2B383 /* ErrorModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleViewController.swift; sourceTree = "<group>"; };
 		9380E5DA233D513C00E2B383 /* ErrorModuleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorModuleViewModel.swift; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 			children = (
 				930FA0DB2561B79800A533A8 /* Location.gpx */,
 				9357BA15240D5D2E00477C9D /* Manila_Makati.gpx */,
-				9380E5D5233D50EC00E2B383 /* readme.md */,
+				9380E5D5233D50EC00E2B383 /* comments.md */,
 				9380E557233D16AC00E2B383 /* RickAndMorty */,
 				9380E56E233D16AF00E2B383 /* RickAndMortyTests */,
 				9380E556233D16AC00E2B383 /* Products */,
