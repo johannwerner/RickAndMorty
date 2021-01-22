@@ -1,7 +1,7 @@
 @testable import RickAndMorty
 import XCTest
 
-class AttributedStringTests: FreeNowTests {
+class AttributedStringTests: RickAndMortyTests {
     let attributesForBold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]
     let attributesForCustom = [NSAttributedString.Key.foregroundColor: UIColor.blue]
     let attributesForUnderline = [NSAttributedString.Key.underlineStyle: 1.0]
