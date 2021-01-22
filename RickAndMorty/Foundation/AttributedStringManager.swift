@@ -76,19 +76,6 @@ private extension AttributedStringManager {
             break
         }
          
-//         if openRange.location == NSNotFound {
-//             if closedRange.location != NSNotFound {
-//                 // no open tag remove close tag
-//                 removeTags(
-//                     openRange: nil,
-//                     closedRange: closedRange,
-//                     attributedString: &attributedString
-//                 )
-//             }
-//             // no open tag found exit function
-//             return
-//         }
-         
          if closedRange.location == NSNotFound {
              // open tag but no matching closing bracket. Format string till end of string
              closedRange = NSRange(location: stringToFindRange.length, length: 0)
