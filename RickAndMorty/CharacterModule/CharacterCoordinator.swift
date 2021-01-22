@@ -23,7 +23,7 @@ final class CharacterCoordinator {
 
 extension CharacterCoordinator {
     
-    func showCharcterVier(animated: Bool, model: ResponseModel) {
+    func showCharcterVier(animated: Bool, model: CharacterResponse) {
            let viewModel = CharacterViewModel(
                coordinator: self,
                configurator: configurator,
@@ -40,9 +40,15 @@ extension CharacterCoordinator {
 // MARK: - Navigation OUT
 
 extension CharacterCoordinator {
-        func showLocation(model: LocationModel, animated: Bool) {
-            let configurator = LocationModuleConfigurator(locationModuleInteractor: LocationModuleInteractorApi())
-            let coordinator = LocationModuleCoordinator(navigationController: navigationController, configurator: configurator)
-            coordinator.showLocation(model: model, animated: true)
-        }
+    func showLocation(model: LocationModel, animated: Bool) {
+        let configurator = LocationModuleConfigurator(locationModuleInteractor: LocationModuleInteractorApi())
+        let coordinator = LocationModuleCoordinator(navigationController: navigationController, configurator: configurator)
+        coordinator.showLocation(model: model, animated: true)
+    }
+    
+    func showEpisode(url: URL, animated: Bool = true) {
+        let configurator = EpisodeConfigurator(mainImageInteractor: EpisodeInteractorApi())
+        let coordinator = EpisodeCoordinator(navigationController: navigationController, configurator: configurator)
+        coordinator.showEpisode(url: url, animated: animated)
+    }
 }

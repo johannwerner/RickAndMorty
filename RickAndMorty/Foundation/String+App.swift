@@ -11,4 +11,12 @@ extension String {
             comment: comment
         )
     }
+    
+    var underline: NSAttributedString {
+        AttributedStringManager.convertStringToAttributedString("<u>\(self)</u>")
+    }
+    
+    var attributedText: NSAttributedString {
+        AttributedStringManager.convertStringToAttributedString(self)
+    }
 }

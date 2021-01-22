@@ -65,7 +65,7 @@ private extension ImageGalleryModuleViewController {
 
     /// Initializes and configures components in controller.
     func setUpViews() {
-        view.backgroundColor = ColorTheme.backkgroundColor
+        view.backgroundColor = ColorTheme.backgroundColor
         
         setUpCollectionView()
         setUpNavBar()

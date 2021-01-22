@@ -65,7 +65,10 @@ private extension IntroductionModuleViewModel {
                     self.coordinator.showError(animated: true)
                 case .success(let model):
                     self.viewEffect.accept(.success)
-                    self.coordinator.showCharacterList(model: model, animated: true)
+                    self.coordinator.showCharacterList(
+                        model: model,
+                        animated: true
+                    )
                 }
             })
             .disposed(by: disposeBag)

@@ -2,7 +2,7 @@
 enum ImageGalleryModuleStatus {
     case loading
     case error
-    case success(ResponseModel)
+    case success(CharacterResponse)
 }
 
 enum ImageGalleryModuleCharacterStatus {

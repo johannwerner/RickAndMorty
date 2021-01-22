@@ -3,7 +3,7 @@ import RxCocoa
 
 /// Contains a collection view of main images and displays the selected image
 /// - Requires: `RxSwift`
-final class MainImageViewController: UIViewController {
+final class MainImageViewController: AppViewController {
     
 // MARK: Dependencies
     private let viewModel: MainImageViewModel

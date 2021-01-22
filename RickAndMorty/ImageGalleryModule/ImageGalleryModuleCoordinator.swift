@@ -23,7 +23,7 @@ final class ImageGalleryModuleCoordinator {
 
 extension ImageGalleryModuleCoordinator {
     
-    func showImageGallery(model: ResponseModel, animated: Bool) {
+    func showImageGallery(model: CharacterResponse, animated: Bool) {
         let viewModel = ImageGalleryModuleViewModel(
             coordinator: self,
             configurator: configurator,
@@ -43,7 +43,7 @@ extension ImageGalleryModuleCoordinator {
 
 extension ImageGalleryModuleCoordinator {
     func showLargeImage(
-        model: ResponseModel,
+        model: CharacterResponse,
         animted: Bool
         ) {
         let interactor = MainImageInteractorApi()

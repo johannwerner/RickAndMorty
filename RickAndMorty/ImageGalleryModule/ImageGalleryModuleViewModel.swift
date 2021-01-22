@@ -8,7 +8,7 @@ final class ImageGalleryModuleViewModel {
 
     // MARK: - Properties
     var isShowingFavorites = false
-    private var responseModel: ResponseModel
+    private var responseModel: CharacterResponse
     private var favorites: [CharacterModel] = []
     private var allCharacters: [CharacterModel] {
         responseModel.results
@@ -29,7 +29,7 @@ final class ImageGalleryModuleViewModel {
     
     init(coordinator: ImageGalleryModuleCoordinator,
          configurator: ImageGalleryModuleConfigurator,
-         model: ResponseModel
+         model: CharacterResponse
         ) {
         self.coordinator = coordinator
         self.useCase = ImageGalleryModuleUseCase(interactor: configurator.imageGalleryModuleInteractor)

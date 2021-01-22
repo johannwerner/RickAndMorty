@@ -3,13 +3,13 @@ import RxCocoa
 
 /// Contains a collection view of main images and displays the selected image
 /// - Requires: `RxSwift`
-final class CharacterViewController: AppViewController {
+final class EpisodeViewController: AppViewController {
     
 // MARK: Dependencies
-    private let viewModel: CharacterViewModel
+    private let viewModel: EpisodeViewModel
     
 // MARK: Rx
-    private let viewAction = PublishRelay<CharacterViewAction>()
+    private let viewAction = PublishRelay<EpisodeViewAction>()
     
 // MARK: View components
     private let tableView: UITableView
@@ -19,7 +19,7 @@ final class CharacterViewController: AppViewController {
 
 // MARK: - Life cycle
     
-    init(viewModel: CharacterViewModel) {
+    init(viewModel: EpisodeViewModel) {
         self.viewModel = viewModel
         tableView = UITableView(frame: .zero, style: .plain)
         
@@ -46,7 +46,7 @@ final class CharacterViewController: AppViewController {
 }
 
 // MARK: TableView
-extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
+extension EpisodeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.tableViewCount
     }
@@ -54,54 +54,17 @@ extension CharacterViewController: UITableViewDataSource, UITableViewDelegate {
  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let type = viewModel.typeForIndex(index: indexPath.row)
       switch type {
-      case .mainImage(let url):
-          let cell = tableView.dequeueReusableCell(ofType: ImageTableViewCell.self, at: indexPath)!
-          cell.fill(with: url)
-          return cell
-      case .location(let text):
-          let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
-          cell.fill(with: text)
-          return cell
-      case .text(let text):
-          let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
-          cell.fill(with: text)
-          return cell
       case .images(let images):
           let cell = tableView.dequeueReusableCell(ofType: ImagesTableViewCell.self, at: indexPath)!
           cell.fill(with: images)
           return cell
-      case .episode(let url):
-        let cell = tableView.dequeueReusableCell(ofType: TextTableViewCell.self, at: indexPath)!
-        cell.fill(with: url)
-        return cell
     }
   }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let type = viewModel.typeForIndex(index: indexPath.row)
-        switch type {
-        case .mainImage, .images:
-            return 400
-        case .location, .text, .episode:
-            return 50
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = viewModel.typeForIndex(index: indexPath.row)
-          switch type {
-          case .mainImage, .text, .images: break
-            case .location(let location):
-                viewModel.showLocation(location: location.0)
-          case .episode(let url):
-            viewModel.showEpisode(url: url)
-        }
-    }
 }
 
 // MARK: - Setup
 
-private extension CharacterViewController {
+private extension EpisodeViewController {
 
     /// Initializes and configures components in controller.
     func setUpViews() {
@@ -130,11 +93,11 @@ private extension CharacterViewController {
 
 // MARK: - Private
 
-private extension CharacterViewController {}
+private extension EpisodeViewController {}
 
 // MARK: - Rx
 
-private extension CharacterViewController {
+private extension EpisodeViewController {
 
     /// Starts observing view effects to react accordingly.
     func observeViewEffect() {
@@ -144,6 +107,7 @@ private extension CharacterViewController {
                 switch effect {
                 case .success:
                     self.activityView.hideView()
+                    self.reloadView()
                 case .error:
                     self.activityView.hideView()
                 case .loading:
@@ -151,5 +115,9 @@ private extension CharacterViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    func reloadView() {
+        title = viewModel.title
     }
 }

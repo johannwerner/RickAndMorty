@@ -23,11 +23,10 @@ struct LocationModel: Codable {
      // MARK: - Life Cycle
      init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-         let name = try container.decode(String.self, forKey: .name)
-//         let locationType = try container.decode(String.self, forKey: .type)
+        let name = try container.decode(String.self, forKey: .name)
         let dimension = try container.decode(String.self, forKey: .dimension)
         let residents = try container.decode([String].self, forKey: .residents)
-         self.name = name
+        self.name = name
         self.dimension = dimension
         self.residents = residents
      }

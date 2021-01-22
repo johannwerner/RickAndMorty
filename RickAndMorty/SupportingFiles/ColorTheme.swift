@@ -14,12 +14,8 @@ extension ColorTheme {
         ColorTheme.blackWithAlpha(alpha: 0.6)
     }
     
-    static var alpha2Dark: UIColor {
+    static var alpha2: UIColor {
         ColorTheme.blackWithAlpha(alpha: 0.2)
-    }
-    
-    static var alpha2Light: UIColor {
-        ColorTheme.whiteWithAlpha(alpha:1.0)
     }
     
     static var black: UIColor {
@@ -30,24 +26,20 @@ extension ColorTheme {
         .white
     }
     
-    static var darkBackkgroundColor: UIColor {
-        ColorTheme.colorWith(red: 47, green: 47, blue: 47)
-    }
-    
-    static var backkgroundColor: UIColor {
-        ColorTheme.isDarkMode ? ColorTheme.colorWith(red: 47, green: 47, blue: 47): .white
+    static var backgroundColor: UIColor {
+        ColorTheme.isDarkMode ? darkBackkgroundColor: .secondarySystemBackground
     }
     
     static var isDarkMode: Bool {
-        view.isDarkMode
+        UIApplication.mainWindow.traitCollection.userInterfaceStyle == .dark
     }
 }
 
 // MARK: - Private Methods
 private extension ColorTheme {
     
-    static var view: UIView {
-        UIView()
+    static var darkBackkgroundColor: UIColor {
+        ColorTheme.colorWith(red: 47, green: 47, blue: 47)
     }
     
     static func blackWithAlpha(alpha: CGFloat) -> UIColor {
@@ -82,11 +74,5 @@ private extension ColorTheme {
             blue: CGFloat(blue)/255,
             alpha: alpha
         )
-    }
-}
-
-private extension UIView {
-    var isDarkMode: Bool {
-        traitCollection.userInterfaceStyle == .dark
     }
 }

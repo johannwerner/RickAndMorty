@@ -23,7 +23,7 @@ extension IntroductionModuleUseCase {
                 case .loading:
                     return .loading
                 case .success(let data):
-                    guard let responseModel = ResponseModel.parse(from: data) else {
+                    guard let responseModel = CharacterResponse.parse(from: data) else {
                         return .error
                     }
                     return .success(responseModel)

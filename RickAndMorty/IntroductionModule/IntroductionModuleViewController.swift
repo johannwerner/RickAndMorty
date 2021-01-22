@@ -34,7 +34,7 @@ final class IntroductionModuleViewController: AppViewController {
 
     override func loadView() {
         view = UIView()
-        view.backgroundColor = ColorTheme.backkgroundColor
+        view.backgroundColor = ColorTheme.backgroundColor
     }
     
     override func viewDidLoad() {

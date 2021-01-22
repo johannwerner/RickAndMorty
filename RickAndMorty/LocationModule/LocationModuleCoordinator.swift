@@ -43,21 +43,21 @@ extension LocationModuleCoordinator {
 
 extension LocationModuleCoordinator {
     func showLargeImage(
-        model: ResponseModel,
+        model: CharacterResponse,
         animted: Bool
         ) {
-//        let interactor = MainImageInteractorApi()
-//        let configurator = MainImageConfigurator(mainImageInteractor: interactor)
-//
-//        let coordinator = MainImageCoordinator(
-//            navigationController: navigationController,
-//            configurator: configurator
-//        )
-//
-//        coordinator.showLargeImage(
-//            model: model,
-//            animated: true
-//        )
+        let interactor = MainImageInteractorApi()
+        let configurator = MainImageConfigurator(mainImageInteractor: interactor)
+
+        let coordinator = MainImageCoordinator(
+            navigationController: navigationController,
+            configurator: configurator
+        )
+
+        coordinator.showLargeImage(
+            model: model,
+            animated: true
+        )
     }
 }
 

@@ -1,7 +1,7 @@
 import RxSwift
 
-/// The protocol for CharacterInteractor
+/// The protocol for EpisodeInteractor
 /// - Requires: `RxSwift`
-protocol CharacterInteractor {
+protocol EpisodeInteractor {
     func getModel(url: URL) -> Observable<Async<Any>>
 }

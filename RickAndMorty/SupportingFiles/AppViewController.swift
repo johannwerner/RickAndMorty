@@ -13,7 +13,8 @@ class AppViewController: UIViewController {
 extension AppViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        view.backgroundColor = ColorTheme.backkgroundColor
+        super.traitCollectionDidChange(previousTraitCollection)
+        view.backgroundColor = ColorTheme.backgroundColor
     }
 }
 
@@ -43,7 +44,7 @@ extension ActivityView {
 private struct ActivityViewStyle {
     static let size = CGSize(width: 80, height: 80)
     static let cornerRadius: CGFloat = 8.0
-    static let transparentViewBackgroundDarkColor = ColorTheme.alpha2Dark
+    static let transparentViewBackgroundDarkColor = ColorTheme.alpha2
     static let backgroundColor = ColorTheme.black
     static let animationDuration: TimeInterval = 0.3
     static let animationStyle: UIView.AnimationOptions = .curveEaseOut
@@ -76,10 +77,9 @@ private extension ActivityViewComponent {
         autoSetDimension(.height, toSize: UIScreen.main.bounds.size.height)
         autoSetDimension(.width, toSize: UIScreen.main.bounds.size.width)
         autoCenterInSuperview()
+        
         backgroundColor = ActivityViewStyle.transparentViewBackgroundDarkColor
         
-        
-
         activityIndicator.startAnimating()
     }
     
@@ -103,20 +103,14 @@ extension ActivityViewComponent {
         addSubview(activityView)
         activityView.autoCenterInSuperview()
         activityView.autoSetDimensions(to: ActivityViewStyle.size)
-        activityView.backgroundColor = isDarkMode ? .white: ActivityViewStyle.backgroundColor
+        activityView.backgroundColor = ColorTheme.isDarkMode ? .white: ActivityViewStyle.backgroundColor
         activityView.layer.cornerRadius = ActivityViewStyle.cornerRadius
         
         activityView.addSubview(activityIndicator)
         activityIndicator.autoCenterInSuperview()
         activityIndicator.style = .large
-        activityIndicator.color = isDarkMode ? .black: ActivityViewStyle.activityIndicatorColor
+        activityIndicator.color = ColorTheme.isDarkMode ? .black: ActivityViewStyle.activityIndicatorColor
         activityIndicator.hidesWhenStopped = true
         activityIndicator.stopAnimating()
-    }
-}
-
-private extension UIView {
-    var isDarkMode: Bool {
-        traitCollection.userInterfaceStyle == .dark
     }
 }

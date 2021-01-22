@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ImageCollectionProtocol {
-    var imageUrlToShow: String { get }
+    var imageUrlToShow: URL { get }
 }
