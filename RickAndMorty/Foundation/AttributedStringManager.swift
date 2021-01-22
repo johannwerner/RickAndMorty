@@ -61,19 +61,33 @@ private extension AttributedStringManager {
          
          closingTag.insert("/", at: closingTag.index(after: closingTag.startIndex))
          var closedRange = stringToFindRange.range(of: closingTag)
+        
+        switch (openRange.location, closedRange.location) {
+        case (NSNotFound, NSNotFound):
+            return
+        case (NSNotFound, _):
+           removeTags(
+                openRange: nil,
+                closedRange: closedRange,
+                attributedString: &attributedString
+            )
+            return
+        default:
+            break
+        }
          
-         if openRange.location == NSNotFound {
-             if closedRange.location != NSNotFound {
-                 // no open tag remove close tag
-                 removeTags(
-                     openRange: nil,
-                     closedRange: closedRange,
-                     attributedString: &attributedString
-                 )
-             }
-             // no open tag found exit function
-             return
-         }
+//         if openRange.location == NSNotFound {
+//             if closedRange.location != NSNotFound {
+//                 // no open tag remove close tag
+//                 removeTags(
+//                     openRange: nil,
+//                     closedRange: closedRange,
+//                     attributedString: &attributedString
+//                 )
+//             }
+//             // no open tag found exit function
+//             return
+//         }
          
          if closedRange.location == NSNotFound {
              // open tag but no matching closing bracket. Format string till end of string
