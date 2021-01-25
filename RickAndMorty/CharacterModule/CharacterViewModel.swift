@@ -107,7 +107,7 @@ private extension CharacterViewModel {
     func setUpDataSourceArray() {
         dataSourceArray.append(CharacterEnum.mainImage(character.imageUrlToShow))
         if originIsUnknown(location: character.origin) == true {
-            dataSourceArray.append(CharacterEnum.text("Origin: Uknown"))
+            dataSourceArray.append(CharacterEnum.text("Origin: Unknown"))
         } else {
             dataSourceArray.append(CharacterEnum.location(location: character.origin, name: "Origin"))
         }
