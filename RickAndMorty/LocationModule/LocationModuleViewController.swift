@@ -62,10 +62,8 @@ private extension LocationModuleViewController {
         title = viewModel.title
         
         setUpCollectionView()
-        setUpNavBar()
     }
-    
-    func setUpNavBar() {}
+
     
     func setUpCollectionView() {
         view.addSubview(collectionView)
