@@ -77,7 +77,6 @@
 		9391B95A23E6EC5100B15591 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B95923E6EC5100B15591 /* TextTableViewCell.swift */; };
 		9391B95C23E6F8AB00B15591 /* GetResidentsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9391B95B23E6F8AB00B15591 /* GetResidentsUseCase.swift */; };
 		9392EA7423E4964C003BC849 /* Reusable+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392EA6E23E4964C003BC849 /* Reusable+UI.swift */; };
-		9392EA7523E4964C003BC849 /* Reusable+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392EA6F23E4964C003BC849 /* Reusable+UIView.swift */; };
 		9392EA7723E4964C003BC849 /* Reusable+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392EA7123E4964C003BC849 /* Reusable+UITableView.swift */; };
 		9392EA7823E4964C003BC849 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392EA7223E4964C003BC849 /* Reusable.swift */; };
 		9392EA7923E4964C003BC849 /* Reusable+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9392EA7323E4964C003BC849 /* Reusable+UICollectionView.swift */; };
@@ -192,7 +191,6 @@
 		9391B95923E6EC5100B15591 /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
 		9391B95B23E6F8AB00B15591 /* GetResidentsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetResidentsUseCase.swift; sourceTree = "<group>"; };
 		9392EA6E23E4964C003BC849 /* Reusable+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UI.swift"; sourceTree = "<group>"; };
-		9392EA6F23E4964C003BC849 /* Reusable+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UIView.swift"; sourceTree = "<group>"; };
 		9392EA7123E4964C003BC849 /* Reusable+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UITableView.swift"; sourceTree = "<group>"; };
 		9392EA7223E4964C003BC849 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9392EA7323E4964C003BC849 /* Reusable+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reusable+UICollectionView.swift"; sourceTree = "<group>"; };
@@ -478,7 +476,6 @@
 				9392EA6E23E4964C003BC849 /* Reusable+UI.swift */,
 				9392EA7323E4964C003BC849 /* Reusable+UICollectionView.swift */,
 				9392EA7123E4964C003BC849 /* Reusable+UITableView.swift */,
-				9392EA6F23E4964C003BC849 /* Reusable+UIView.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -749,7 +746,6 @@
 				9380E5B8233D1F7300E2B383 /* ImageGalleryModuleInteractorApi.swift in Sources */,
 				9380E5CC233D250A00E2B383 /* MainImageViewController.swift in Sources */,
 				93F071D923E70DB000EB576B /* LocationModuleCoordinator.swift in Sources */,
-				9392EA7523E4964C003BC849 /* Reusable+UIView.swift in Sources */,
 				9334177B23F985D000757CDF /* ImagesTableViewCell.swift in Sources */,
 				934DF5C623F99E0A00F75C5F /* EpisodeConfigurator.swift in Sources */,
 				9380E588233D17BA00E2B383 /* IntroductionModuleUseCase.swift in Sources */,
