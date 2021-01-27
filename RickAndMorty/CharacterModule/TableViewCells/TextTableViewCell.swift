@@ -43,7 +43,7 @@ extension TextTableViewCell {
     
     func fill(with url: URL) {
         let episodeNumber = url.absoluteString.split(separator: "/").last ?? ""
-        fill(attributedText: "episode \(episodeNumber)", underline: true)
+        fill(attributedText: "episode \(episodeNumber)", underline: false)
     }
 }
 

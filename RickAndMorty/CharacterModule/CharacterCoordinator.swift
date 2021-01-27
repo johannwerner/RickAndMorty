@@ -47,8 +47,6 @@ extension CharacterCoordinator {
     }
     
     func showEpisode(url: URL, animated: Bool = true) {
-        let configurator = EpisodeConfigurator(mainImageInteractor: EpisodeInteractorApi())
-        let coordinator = EpisodeCoordinator(navigationController: navigationController, configurator: configurator)
-        coordinator.showEpisode(url: url, animated: animated)
+        unimplemented()
     }
 }

@@ -96,8 +96,9 @@ extension CharacterViewModel {
             }).disposed(by: disposeBag)
     }
     
+    //TODO: Still need to implement it
     func showEpisode(url: URL) {
-        coordinator.showEpisode(url: url)
+
     }
 }
 
