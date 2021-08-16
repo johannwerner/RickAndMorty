@@ -9,6 +9,7 @@
 import UIKit
 
 private struct ImageModel: ImageCollectionProtocol {
+    var accessibilityName: String?
     var imageUrlToShow: URL
 }
 

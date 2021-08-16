@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct CharacterModel: Codable, ImageCollectionProtocol {
+struct CharacterModel: Codable, ImageCollectionProtocol {    
+    
     var image: URL
     var id: Int
     var isFavorite: Bool
@@ -22,6 +23,10 @@ struct CharacterModel: Codable, ImageCollectionProtocol {
     
     var imageUrlToShow: URL {
         image
+    }
+    
+    var accessibilityName: String? {
+        name
     }
     
     enum CodingKeys: String, CodingKey {

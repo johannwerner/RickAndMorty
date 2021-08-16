@@ -4,6 +4,7 @@ import PureLayout
 final class MainImageCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     private let imageView = UIImageView()
+    private let label = UILabel()
     // MARK: - Life Cycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +21,8 @@ final class MainImageCollectionViewCell: UICollectionViewCell {
 extension MainImageCollectionViewCell {
     func fill(with model: ImageCollectionProtocol) {
         imageView.setRemoteImage(url: model.imageUrlToShow)
+        imageView.accessibilityLabel = model.accessibilityName
+        imageView.isAccessibilityElement = true
     }
 }
 
