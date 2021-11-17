@@ -1,0 +1,24 @@
+/* 
+  Rick.strings
+  RickAndMorty
+
+  Created by Johann Werner on 26.09.19.
+  Copyright © 2019 Johann Werner. All rights reserved.
+*/
+
+
+"error_title" = "Sorry something went wrong on our side. Please check your internet connection and try again.";
+
+"error_primary_button" = "Try again";
+
+"main_image_model_unfavorite" = "Unfavorite";
+
+"main_image_model_favorite" = "Favorite";
+
+"introduction_model_subtitle_text" = "<b><custom>iOS</custom></b> Challenge";
+
+"introduction_model_primary_button" = "Next";
+
+"image_gallery_model_hide_favorites" = "Hide favorites";
+
+"image_gallery_model_show_favorites" = "Show favorites";
